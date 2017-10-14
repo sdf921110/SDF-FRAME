@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为DemoUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.sdf.core.mapper.demo.DemoUserDao">
+
+    <!--查询BY ID-->
+    <select id="selectById" resultType="com.sdf.core.pojo.demo.DemoUser" parameterType="long">
+        SELECT * FROM demo_user WHERE id = #{id}
+    </select>
+
+   <!--查询BY NAME-->
+    <select id="selectByName" resultType="com.sdf.core.pojo.demo.DemoUser" parameterType="String">
+        SELECT * FROM demo_user WHERE user_name = #{user_name}
+    </select>
+
+    <!--查询全部-->
+    <!--因为resultType返回的是集合中的元素类型，而不是集合本身 所以resultType返回值不是java.util.List-->
+    <select id="selectAll" resultType="com.sdf.core.pojo.demo.DemoUser">
+        SELECT * FROM demo_user
+    </select>
+
+    <!-- 添加 -->
+    <insert id="insert" parameterType="com.sdf.core.pojo.demo.DemoUser">
+        insert into demo_user(user_name,password,age) values(#{user_name},#{password},#{age})
+    </insert>
+
+    <!-- 删除 -->
+    <delete id="deleteById" parameterType="int">
+        delete from demo_user where id=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+    <!-- 自动扫描  @Controller-->
+    <context:component-scan base-package="com.sdf.core.controller"/>
+    <mvc:annotation-driven/>
+
+    <!-- 对静态资源文件的访问 不支持访问WEB-INF目录 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 对静态资源文件的访问 restful -->
+    <mvc:resources location="/ui/" mapping="/ui/**"/>
+    <mvc:resources location="/static/" mapping="/static/**"/>
+
+    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/> <!-- JSON转换器 -->
+            </list>
+        </property>
+    </bean>
+
+    <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 文件上传配置 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 上传文件大小限制为31M，31*1024*1024 -->
+        <property name="maxUploadSize" value="32505856"/>
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="4096"/>
+    </bean>
+
+    <!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/favicon.ico"/>
+            <mvc:exclude-mapping path="/ui/**"/>
+            <mvc:exclude-mapping path="/static/**"/>
+            <mvc:exclude-mapping path="/upload/**"/>
+            <bean class="com.sdf.common.interceptor.PCInterceptor"/>
+        </mvc:interceptor>
+        <!-- 手机视图拦截器
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.sdf.common.interceptor.MobileInterceptor" />
+        </mvc:interceptor>-->
+        <!-- 调试
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.lucksoft.bdms.http.DebugInterceptors"/>
+        </mvc:interceptor>
+		  -->
+    </mvc:interceptors>
+
+</beans>

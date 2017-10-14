@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdf.core.mapper.system.SysFileUrlDao">
+
+    <resultMap id="BaseResultMap" type="com.sdf.core.pojo.system.SysFileUrl">
+        <constructor>
+            <arg column="file_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="file_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="table_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="table_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="file_url" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="is_img" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="is_thumb" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="status" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="is_delete" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="create_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="update_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="create_user" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="update_user" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+            <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        </constructor>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.sdf.core.pojo.system.SysFileUrl">
+        insert into sys_file_url (file_name, file_type, table_id,
+        table_name, file_url, is_img,
+        is_thumb, status, is_delete, create_id,
+        update_id, create_user, update_user,
+        create_time, update_time)
+        values (#{fileName,jdbcType=VARCHAR}, #{fileType,jdbcType=VARCHAR}, #{tableId,jdbcType=INTEGER},
+        #{tableName,jdbcType=VARCHAR}, #{fileUrl,jdbcType=VARCHAR}, #{isImg,jdbcType=BIT},
+        #{isThumb,jdbcType=BIT}, #{status,jdbcType=BIT}, #{isDelete,jdbcType=BIT}, #{createId,jdbcType=INTEGER},
+        #{updateId,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+</mapper>

@@ -1,0 +1,9 @@
+2017年10月13日21:46:24
+
+SSM系统框架
+
+UI地址：
+1.http://localhost/Frame/ui/hAdmin/index.html
+2.http://localhost/Frame/ui/layuiCMS/index.html
+
+部署服务器需修改 Frame\src\main\webapp\static\plugins\ueditor-1.4.3.3\jsp\config.json
