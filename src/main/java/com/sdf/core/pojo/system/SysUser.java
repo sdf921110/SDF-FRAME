@@ -52,7 +52,7 @@ public class SysUser extends BaseEntity {
     /**
      * 角色ID
      **/
-    private Integer roleId;
+    private Integer role_id;
 
     /**
      * 角色
@@ -68,13 +68,13 @@ public class SysUser extends BaseEntity {
     /**
      * 带参构造方法
      */
-    public SysUser(String desc, String name, String phone, String code, String password, Integer roleId, SysRole sysRole) {
+    public SysUser(String desc, String name, String phone, String code, String password, Integer role_id, SysRole sysRole) {
         this.desc = desc;
         this.name = name;
         this.phone = phone;
         this.code = code;
         this.password = password;
-        this.roleId = roleId;
+        this.role_id = role_id;
         this.sysRole = sysRole;
     }
 
@@ -95,7 +95,7 @@ public class SysUser extends BaseEntity {
         this.phone = rs.getString("phone");
         this.code = rs.getString("code");
         this.password = rs.getString("password");
-        this.roleId = rs.getInt("roleId");
+        this.role_id = rs.getInt("role_id");
 
         this.sysRole = new SysRole();
         sysRole.setName(rs.getString("roleName"));
@@ -150,11 +150,11 @@ public class SysUser extends BaseEntity {
     }
 
     public Integer getRoleId() {
-        return roleId;
+        return role_id;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRoleId(Integer role_id) {
+        this.role_id = role_id;
     }
 
     public SysRole getSysRole() {
@@ -176,7 +176,7 @@ public class SysUser extends BaseEntity {
                 ", phone='" + phone + '\'' +
                 ", code='" + code + '\'' +
                 ", password='" + password + '\'' +
-                ", roleId=" + roleId +
+                ", role_id=" + role_id +
                 ", sysRole=" + sysRole +
                 ", id=" + id +
                 ", createId=" + createId +

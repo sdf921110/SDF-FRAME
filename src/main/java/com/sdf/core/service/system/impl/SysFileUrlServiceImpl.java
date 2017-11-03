@@ -2,6 +2,7 @@ package com.sdf.core.service.system.impl;
 
 import com.sdf.core.mapper.system.SysFileUrlDao;
 import com.sdf.core.pojo.system.SysFileUrl;
+import com.sdf.core.service.BaseService;
 import com.sdf.core.service.system.ISysFileUrlService;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import javax.annotation.Resource;
  * @Version: 1.0
  */
 @Service
-public class SysFileUrlServiceImpl implements ISysFileUrlService {
+public class SysFileUrlServiceImpl extends BaseService implements ISysFileUrlService {
 
     @Resource
     private SysFileUrlDao sysFileUrlDao;

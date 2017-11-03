@@ -22,6 +22,8 @@ public class BaseController {
     public final String FRONT_PREFIX = "front";
 
     public static final String BACK_SESSION_USER = "back_session_user";
+    // 后台登录页
+    public static final String BACK_SESSION_LOGIN_PAGE = "back_session_login_page";
     public static final String FRONT_SESSION_USER = "front_session_user";
 
     protected String datafomat = "yyyy-MM-dd";

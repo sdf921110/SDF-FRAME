@@ -1,9 +1,8 @@
 2017年10月13日21:46:24
 
-SSM系统框架
+后台框架SpringMVC+Mybatis+Shiro+Redis
 
-UI地址：
-1.http://localhost/Frame/ui/hAdmin/index.html
-2.http://localhost/Frame/ui/layuiCMS/index.html
+github地址：
+https://github.com/sdf921110/SDF-FRAME
 
 部署服务器需修改 Frame\src\main\webapp\static\plugins\ueditor-1.4.3.3\jsp\config.json

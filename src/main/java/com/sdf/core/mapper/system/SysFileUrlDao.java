@@ -14,6 +14,6 @@ public interface SysFileUrlDao {
 
     int insert(SysFileUrl sysFileUrl);
 
-    int insertSelective(SysFileUrl sysFileUrl);
+   /* int insertSelective(SysFileUrl sysFileUrl);*/
 
 }

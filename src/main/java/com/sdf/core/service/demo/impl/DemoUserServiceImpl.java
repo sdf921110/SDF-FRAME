@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("demoUserService")
+@Service
 public class DemoUserServiceImpl implements IDemoUserService {
 
     @Resource
