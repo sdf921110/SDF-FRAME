@@ -22,7 +22,7 @@ public class PCInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURI();
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("=======================>>请求 url   " + url);
+        System.err.println("==============================================>>请求 url: " + url);
         if (url.indexOf("upload") != -1 || url.indexOf("api") != -1 || url.indexOf("demo") != -1
                 || url.indexOf("login") != -1 || url.indexOf("index") != -1) {
             return true;

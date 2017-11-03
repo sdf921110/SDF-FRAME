@@ -23,10 +23,12 @@
         </constructor>
     </resultMap>-->
 
-    <sql id="allColumns">file_name, file_type, table_id, table_name, file_url, is_img, is_thumb, status, is_delete, create_id,update_id, create_user, update_user,create_time, update_time</sql>
+    <sql id="insertColumns">t.file_name, t.file_type, t.table_id, t.table_name, t.file_url, t.is_img, t.is_thumb, t.tatus, t.is_delete, t.create_id,t.update_id, t.create_user, t.update_user,t.create_time, t.update_time</sql>
+
+    <sql id="tableName"> sys_file_url t </sql>
 
     <insert id="insert" parameterType="com.sdf.core.pojo.system.SysFileUrl">
-        insert into sys_file_url (<include refid="allColumns"/>)
+        insert into sys_file_url (<include refid="insertColumns"/>)
         values (#{fileName}, #{fileType}, #{tableId},#{tableName}, #{fileUrl}, #{isImg},#{isThumb}, #{status},
         #{isDelete}, #{createId},#{updateId}, #{createUser}, #{updateUser},#{createTime}, #{updateTime})
     </insert>

@@ -43,8 +43,21 @@ public class LoginController extends BaseController {
      * @Version: 1.0
      */
     @RequestMapping(value = "hAdmin")
-    public String page() {
+    public String hAdmin() {
         return BACK_PREFIX + "/system/login/hAdmin";
+    }
+
+    /**
+     * layuiCMS登录页
+     * http://localhost/Frame/ui/layuiCMS/page/login/login.html
+     *
+     * @Date: 2017/11/3 11:24
+     * @Author: SDF
+     * @Version: 1.0
+     */
+    @RequestMapping(value = "layuiCMS")
+    public String layuiCMS() {
+        return BACK_PREFIX + "/system/login/layuiCMS";
     }
 
     /**
@@ -87,7 +100,8 @@ public class LoginController extends BaseController {
             List<Map<String, Object>> fMenus = sessionUserPO.getFmenus();
             if (fMenus.isEmpty()) {
 //				msg.setInfo("/system/common/noRights.htm");
-                msg.setInfo("/index/manage/page");
+//              msg.setInfo("/index/manage/page");
+                msg.setInfo("/ui/layuiCMS/index.html");
             } else {
                 msg.setInfo(fMenus.get(0).get("menuUrl") + "");
             }

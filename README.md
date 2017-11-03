@@ -31,3 +31,5 @@
 
 2、增加登录页展示(hAdmin UI)
 
+3、增加layuiCMS UI登录校验
+

@@ -12,7 +12,7 @@ layui.config({
 			$(".video-player").css({"width":$(window).width(),"height":"auto","left":-($(".video-player").width()-$(window).width())/2});
 		}
 	}).resize();
-	
+
 	//登录按钮事件
 	form.on("submit(login)",function(data){
 		window.location.href = "../../index.html";

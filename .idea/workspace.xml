@@ -32,23 +32,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SysFileUrlMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlMapper.xml">
+      <file leaf-file-name="layuiCMS.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/layuiCMS.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="17" />
-              <folding>
-                <marker date="1509630551227" expanded="true" signature="1904:2176" ph="insert into sys_file_url... " />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/CommonController.java">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="90">
+              <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hAdmin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/hAdmin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="86" column="69" lean-forward="true" selection-start-line="86" selection-start-column="46" selection-end-line="86" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -57,38 +65,21 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="165">
+              <caret line="76" column="49" lean-forward="true" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+              <folding>
+                <element signature="e#1594#1595#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sdf_timeline_v2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/hAdmin/sdf_timeline_v2.html">
+      <file leaf-file-name="ISysUserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/ISysUserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="56" column="84" lean-forward="false" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="更新记录" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/doc/更新记录">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SysUserDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="353">
+              <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -97,8 +88,8 @@
       <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="407">
+              <caret line="81" column="14" lean-forward="true" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -129,12 +120,14 @@
       <find>xcc</find>
       <find>MyBatis3</find>
       <find>autoDelimitKeywords</find>
+      <find>hAdmin</find>
     </findStrings>
     <replaceStrings>
       <replace>SessionUser</replace>
       <replace>BACK_SESSION_USER</replace>
       <replace>sys_file_url</replace>
       <replace>Frame</replace>
+      <replace>layuiCMS UI</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\idea-workspace\Frame</dir>
@@ -148,8 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/utils/PropertiesConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/utils/ImgThumbnailatorUtil.java" />
         <option value="$PROJECT_DIR$/target/classes/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/pojo/BaseEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/pojo/system/SysFileUrl.java" />
@@ -165,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/utils/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/pojo/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/interceptor/MobileInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/interceptor/PCInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/common/uploadImages.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/CommonController.java" />
@@ -176,29 +166,32 @@
         <option value="$PROJECT_DIR$/src/main/webapp/static/plugins/ueditor-1.4.3.3/jsp/config.json" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/plugins/ueditor-1.4.3.3/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/plugins/blueimp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/doc/readme" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/common/js/myLayer.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/ILoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/controller/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/hAdmin.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/demo/DemoUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/demo/impl/DemoUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysFileUrlServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/ISysUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/pojo/system/SysUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/ui/hAdmin/sdf_timeline_v2.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/doc/更新记录" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/ui/hAdmin/sdf_timeline_v2.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdf/common/interceptor/PCInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/hAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/layuiCMS.jsp" />
       </list>
     </option>
   </component>
@@ -315,6 +308,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,9 +320,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,13 +342,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\idea-workspace\Frame\src\main\webapp\ui" />
-      <recent name="E:\idea-workspace\Frame\src\main\resources" />
-      <recent name="E:\idea-workspace\Frame\src\main\resources\mybatis" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sdf.common.pojo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\idea-workspace\Frame\src\main\webapp\WEB-INF\jsp\back\system\login" />
+      <recent name="E:\idea-workspace\Frame\src\main\java\com\sdf\core\mapper\system" />
+      <recent name="E:\idea-workspace\Frame\src\main\webapp" />
+      <recent name="E:\idea-workspace\Frame\src\main\webapp\static\plugins\blueimp" />
+      <recent name="E:\idea-workspace\Frame\src\main\webapp\static\plugins" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sdf.core.mapper.system" />
@@ -364,12 +359,10 @@
       <recent name="com.sdf.core.controller.system" />
       <recent name="com.sdf.core.controller.common" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\idea-workspace\Frame\src\main\java\com\sdf\core\mapper\system" />
-      <recent name="E:\idea-workspace\Frame\src\main\webapp" />
-      <recent name="E:\idea-workspace\Frame\src\main\webapp\WEB-INF\jsp\back\system\login" />
-      <recent name="E:\idea-workspace\Frame\src\main\webapp\static\plugins\blueimp" />
-      <recent name="E:\idea-workspace\Frame\src\main\webapp\static\plugins" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\idea-workspace\Frame\src\main\webapp\ui" />
+      <recent name="E:\idea-workspace\Frame\src\main\resources" />
+      <recent name="E:\idea-workspace\Frame\src\main\resources\mybatis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -881,7 +874,8 @@
       <workItem from="1508933346640" duration="639000" />
       <workItem from="1508934028553" duration="5000" />
       <workItem from="1509620769504" duration="11056000" />
-      <workItem from="1509673727526" duration="221000" />
+      <workItem from="1509673727526" duration="3501000" />
+      <workItem from="1509718456492" duration="4466000" />
     </task>
     <task id="LOCAL-00001">
       <created>1507469884672</created>
@@ -918,7 +912,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509673876989</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1、增加layuiCMS UI登录校验">
+      <created>1509723600930</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1509723600930</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -954,7 +955,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116431000" />
+    <option name="totallyTimeSpent" value="124177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -989,7 +990,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31527627" sideWeight="0.4914712" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2531983" sideWeight="0.47522524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21162046" sideWeight="0.47522524" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25373134" sideWeight="0.5247748" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19402985" sideWeight="0.509009" order="6" side_tool="true" content_ui="tabs" />
@@ -1019,7 +1020,8 @@
     <MESSAGE value="增加百度ueditor富文本" />
     <MESSAGE value="1、增加layer-v3.1.0弹弹窗（层）&#10;2、增加SweetAlert2弹出层&#10;3、修复百度ueditor上传功能&#10;4、新增AmaAdmin UI框架&#10;5、删除imgSwitch 插件（页面效果垃圾）&#10;6、删除viewer.js 插件（不知道为什么没有效果了）" />
     <MESSAGE value="1、增加了Mybatis后修复项目启动报错（Mapper中namespace命名重复了）&#10;2、增加登录页展示(hAdmin UI)" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、增加了Mybatis后修复项目启动报错（Mapper中namespace命名重复了）&#10;2、增加登录页展示(hAdmin UI)" />
+    <MESSAGE value="1、增加layuiCMS UI登录校验" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、增加layuiCMS UI登录校验" />
     <option name="CHANGE_BROWSER_SETTINGS">
       <map>
         <entry key="svn">
@@ -1032,20 +1034,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java</url>
-          <line>60</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysUserServiceImpl.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1054,7 +1042,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1063,43 +1051,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/plugins/blueimp/css/blueimp-gallery.min.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/plugins/blueimp/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/AmaAdmin/js/custom/blog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/doc/readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/plugins/login/user.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1154,13 +1105,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/SysUserMapper.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/SysUserMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/pojo/SysUser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/hAdmin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="124" column="49" lean-forward="false" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Maven/Maven-home-aliyun/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1173,7 +1117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1116">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,7 +1168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,9 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,7 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,15 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/ISysUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,19 +1236,6 @@
         <state relative-caret-position="198">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-          <folding>
-            <marker date="1509630917275" expanded="true" signature="1778:2021" ph="insert into sys_user... " />
-            <marker date="1509630917275" expanded="true" signature="2145:2232" ph="select desc,... " />
-            <marker date="1509630917275" expanded="true" signature="2160:2189" ph="insert into sys_user... " />
-            <marker date="1509630917275" expanded="true" signature="2351:2436" ph="select id,de... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1338,53 +1253,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/CommonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/hAdmin/sdf_timeline_v2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="56" column="84" lean-forward="false" selection-start-line="56" selection-start-column="84" selection-end-line="56" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="17" />
-          <folding>
-            <marker date="1509630551227" expanded="true" signature="1904:2176" ph="insert into sys_file_url... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,30 +1264,155 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/doc/更新记录">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/CommonController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysFileUrlMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+          <folding>
+            <marker date="1509677885371" expanded="true" signature="1984:2259" ph="insert into sys_file_url... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <marker date="1509677907569" expanded="true" signature="1850:2113" ph="insert into sys_user... " />
+            <marker date="1509677907569" expanded="true" signature="2237:2351" ph="select desc,... " />
+            <marker date="1509677907569" expanded="true" signature="2257:2286" ph="insert into sys_user... " />
+            <marker date="1509677907569" expanded="true" signature="2470:2582" ph="select id,de... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/mapper/system/SysUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/layui/layui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/hAdmin/sdf_timeline_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="49" column="69" lean-forward="true" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/Maven/Maven-home-aliyun/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state relative-caret-position="484">
+          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/common/interceptor/MobileInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/common/interceptor/PCInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="24" column="84" lean-forward="false" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/impl/SysUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="407">
+          <caret line="81" column="14" lean-forward="true" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/doc/更新记录">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/service/system/ISysUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="353">
+          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdf/core/controller/system/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="76" column="49" lean-forward="true" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+          <folding>
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/hAdmin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="86" column="69" lean-forward="true" selection-start-line="86" selection-start-column="46" selection-end-line="86" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ui/layuiCMS/page/login/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/back/system/login/layuiCMS.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="46" />
           <folding />
         </state>
       </provider>

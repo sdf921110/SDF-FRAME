@@ -73,10 +73,14 @@ public class SysUserServiceImpl extends BaseService implements ISysUserService {
         SysUser sysUser = selectByCode(code);
 
         if(sysUser!=null){
-
             if(password.equals(sysUser.getPassword())){
                 sessionUser.setSysUser(sysUser);
+                sessionUser.setStatus(1);
+            }else{
+                sessionUser = null;
             }
+        }else{
+            sessionUser = null;
         }
 
         return sessionUser;

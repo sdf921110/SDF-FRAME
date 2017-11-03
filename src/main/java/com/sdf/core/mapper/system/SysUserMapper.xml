@@ -21,24 +21,26 @@
         </constructor>
     </resultMap>-->
 
-    <sql id="allColumns"> desc, name, phone,code, password, role_id,status, is_delete, create_id,update_id, create_user, update_user,create_time, update_time </sql>
+    <sql id="allColumns"> t.desc, t.name, t.phone,t.code, t.password, t.role_id,t.status, t.is_delete, t.create_id,t.update_id, t.create_user, t.update_user,t.create_time, t.update_time </sql>
+
+    <sql id="tableName"> sys_user t </sql>
 
     <insert id="insert" parameterType="com.sdf.core.pojo.system.SysUser">
-        insert into sys_user (<include refid="allColumns"/>)
+        insert into <include refid="tableName"/> (<include refid="allColumns"/>)
         values (#{desc}, #{name}, #{phone},#{code}, #{password}, #{roleId},#{status}, #{isDelete},
         #{createId},#{updateId}, #{createUser}, #{updateUser},#{createTime}, #{updateTime})
     </insert>
 
     <select id="selectByCode" resultType="com.sdf.core.pojo.system.SysUser" parameterType="String">
         select
-        <include refid="allColumns"/>
-        from sys_user where code = #{code}
+        t.id,<include refid="allColumns"/>
+        from <include refid="tableName"/> where t.code = #{code}
     </select>
 
     <select id="selectById" resultType="com.sdf.core.pojo.system.SysUser" parameterType="int">
         select
-        <include refid="allColumns"/>
-        from sys_user where id = #{code}
+        t.id,<include refid="allColumns"/>
+        from <include refid="tableName"/> where t.id = #{code}
     </select>
 
 </mapper>
