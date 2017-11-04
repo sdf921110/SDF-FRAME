@@ -1,6 +1,8 @@
 package com.sdf.core.service.system.impl;
 
+import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
+import com.sdf.core.controller.BaseController;
 import com.sdf.core.mapper.system.SysFileUrlDao;
 import com.sdf.core.mapper.system.SysUserDao;
 import com.sdf.core.pojo.system.SysFileUrl;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -72,17 +75,30 @@ public class SysUserServiceImpl extends BaseService implements ISysUserService {
 
         SysUser sysUser = selectByCode(code);
 
-        if(sysUser!=null){
-            if(password.equals(sysUser.getPassword())){
+        if (sysUser != null) {
+            if (password.equals(sysUser.getPassword())) {
                 sessionUser.setSysUser(sysUser);
-                sessionUser.setStatus(1);
-            }else{
+            } else {
                 sessionUser = null;
             }
-        }else{
+        } else {
             sessionUser = null;
         }
 
         return sessionUser;
+    }
+
+    @Override
+    public MSG submit(SysUser sysUser, HttpSession session) {
+        int update = sysUserDao.update(sysUser);
+        if (update > 0) {
+            SessionUser sessionUser = (SessionUser) session.getAttribute(BaseController.BACK_SESSION_USER);
+            // 编辑的用户信息为当前登录用户，更新session
+            if (sessionUser != null && sessionUser.getSysUser().getId() == sysUser.getId()) {
+                sessionUser.setSysUser(sysUser);
+            }
+            return MSG.createSuccessMSG();
+        }
+        return MSG.createErrorMSG();
     }
 }

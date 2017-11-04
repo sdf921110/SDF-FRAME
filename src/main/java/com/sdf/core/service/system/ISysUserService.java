@@ -1,11 +1,13 @@
 package com.sdf.core.service.system;
 
+import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.pojo.system.SysFileUrl;
 import com.sdf.core.pojo.system.SysUser;
 import com.sdf.core.service.BaseService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -32,4 +34,6 @@ public interface ISysUserService {
     public List<SysUser> selectList();
 
     SessionUser login_submit(String code, String password, HttpServletRequest request);
+
+    MSG submit(SysUser SysUser,HttpSession session);
 }

@@ -15,16 +15,16 @@
 
     <link rel="shortcut icon" href="../../../../../favicon.ico">
     <link rel="stylesheet"
-          href="${ctx }/static/plugins/login/bootstrap.min.css"/>
+          href="${ctx}/static/plugins/login/bootstrap.min.css"/>
     <link rel="stylesheet"
-          href="${ctx }/static/plugins/login/css/camera.css"/>
+          href="${ctx}/static/plugins/login/css/camera.css"/>
     <%-- <link rel="stylesheet"
-        href="${ctx }/static/plugins/login/bootstrap-responsive.min.css" /> --%>
+        href="${ctx}/static/plugins/login/bootstrap-responsive.min.css" /> --%>
     <link rel="stylesheet"
-          href="${ctx }/static/plugins/login/matrix-login.css"/>
+          href="${ctx}/static/plugins/login/matrix-login.css"/>
     <link rel="stylesheet"
-          href="${ctx }/static/plugins/login/font-awesome.css"/>
-    <script src="${ctx }/static/plugins/jquery-1.8.3/jquery.min.js"></script>
+          href="${ctx}/static/plugins/login/font-awesome.css"/>
+    <script src="${ctx}/static/plugins/jquery-1.8.3/jquery.min.js"></script>
 
     <!-- layer弹层组件 -->
     <link rel="stylesheet"
@@ -44,7 +44,7 @@
         <form action="" method="post" name="loginForm" id="loginForm">
             <div class="control-group normal_text">
                 <h4>
-                    <img src="${ctx }/static/plugins/login/logo.png" alt="Logo"/>
+                    <img src="${ctx}/static/plugins/login/logo.png" alt="Logo"/>
                     <p style="font-size: 15px; padding-top: 10px;">hAdmin - 后台管理系统</p>
                 </h4>
             </div>
@@ -52,7 +52,7 @@
                 <div class="controls">
                     <div class="main_input_box">
 							<span class="add-on bg_lg"> <i><img height="37"
-                                                                src="${ctx }/static/plugins/login/user.png"/></i>
+                                                                src="${ctx}/static/plugins/login/user.png"/></i>
 							</span><input type="text" name="loginname" id="loginname" value=""
                                           placeholder="请输入用户名"/>
                     </div>
@@ -62,7 +62,7 @@
                 <div class="controls">
                     <div class="main_input_box">
 							<span class="add-on bg_ly"> <i><img height="37"
-                                                                src="${ctx }/static/plugins/login/suo.png"/></i>
+                                                                src="${ctx}/static/plugins/login/suo.png"/></i>
 							</span><input type="password" name="password" id="password"
                                           placeholder="请输入密码" value=""/>
                     </div>
@@ -103,11 +103,11 @@
 <div id="templatemo_banner_slide" class="container_wapper">
     <div class="camera_wrap camera_emboss" id="camera_slide">
         <div
-                data-src="${ctx }/static/plugins/login/images/banner_slide_01.jpg"></div>
+                data-src="${ctx}/static/plugins/login/images/banner_slide_01.jpg"></div>
         <div
-                data-src="${ctx }/static/plugins/login/images/banner_slide_02.jpg"></div>
+                data-src="${ctx}/static/plugins/login/images/banner_slide_02.jpg"></div>
         <div
-                data-src="${ctx }/static/plugins/login/images/banner_slide_03.jpg"></div>
+                data-src="${ctx}/static/plugins/login/images/banner_slide_03.jpg"></div>
     </div>
     <!-- #camera_wrap_3 -->
 </div>
@@ -125,7 +125,8 @@
                 url: contextPath + '/login/submit',
                 data: {
                     code: loginname,
-                    password: password
+                    password: password,
+                    loginUrl: "/login/hAdmin" // 多个登录页时，进入系统后点击退出登录跳转此页面
                 },
                 dataType: 'json',
                 cache: false,
@@ -251,15 +252,15 @@
     });
 </script>
 
-<script src="${ctx }/static/plugins/login/js/jquery.easing.1.3.js"></script>
+<script src="${ctx}/static/plugins/login/js/jquery.easing.1.3.js"></script>
 <%-- 	<script
-    src="${ctx }/static/plugins/login/js/jquery.mobile.customized.min.js"></script> --%>
-<script src="${ctx }/static/plugins/login/js/camera.min.js"></script>
-<script src="${ctx }/static/plugins/login/js/templatemo_script.js"></script>
+    src="${ctx}/static/plugins/login/js/jquery.mobile.customized.min.js"></script> --%>
+<script src="${ctx}/static/plugins/login/js/camera.min.js"></script>
+<script src="${ctx}/static/plugins/login/js/templatemo_script.js"></script>
 <script type="text/javascript"
-        src="${ctx }/static/plugins/login/js/jquery.tips.js"></script>
+        src="${ctx}/static/plugins/login/js/jquery.tips.js"></script>
 <script type="text/javascript"
-        src="${ctx }/static/plugins/jquery-cookie-1.4.1/jquery.cookie.js"></script>
+        src="${ctx}/static/plugins/jquery-cookie-1.4.1/jquery.cookie.js"></script>
 </body>
 
 </html>

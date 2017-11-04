@@ -13,12 +13,12 @@
     <meta name="description" content="layuiCMS UI - 后台管理系统"/>
     <title>layuiCMS UI - 后台管理系统 - 登录</title>
 
-    <link rel="shortcut icon" href="${ctx }/ui/layuiCMS/favicon.ico">
+    <link rel="shortcut icon" href="${ctx}/ui/layuiCMS/favicon.ico">
 
-    <link rel="stylesheet" href="${ctx }/ui/layuiCMS/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="${ctx }/ui/layuiCMS/css/login.css" media="all" />
+    <link rel="stylesheet" href="${ctx}/ui/layuiCMS/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="${ctx}/ui/layuiCMS/css/login.css" media="all" />
 
-    <script src="${ctx }/static/plugins/jquery-1.8.3/jquery.min.js"></script>
+    <script src="${ctx}/static/plugins/jquery-1.8.3/jquery.min.js"></script>
 
     <!-- layer弹层组件 -->
     <link rel="stylesheet"
@@ -48,7 +48,7 @@
         </div>
         <div class="layui-form-item form_code">
             <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
-            <div class="code"><img src="${ctx }/ui/layuiCMS/images/code.jpg" width="116" height="36"></div>
+            <div class="code"><img src="${ctx}/ui/layuiCMS/images/code.jpg" width="116" height="36"></div>
         </div>
         <a class="layui-btn login_btn"  id="severCheck">登录</a>
     </form>
@@ -95,7 +95,8 @@
             url: contextPath + '/login/submit',
             data: {
                 code: loginname,
-                password: password
+                password: password,
+                loginUrl: "/login/layuiCMS" // 多个登录页时，进入系统后点击退出登录跳转此页面
             },
             dataType: 'json',
             cache: false,
@@ -112,7 +113,6 @@
                 myLayer.alert("请求失败", 7);
             },
             success: function (msg) {
-                console.dir(msg.success);
                 if (msg.success) {
                     saveCookie();
                     window.location.href = contextPath + msg.info;
@@ -177,12 +177,12 @@
 </script>
 
 
-<script type="text/javascript" src="${ctx }/ui/layuiCMS/layui/layui.js?v=1.0.9"></script>
-<%--<script type="text/javascript" src="${ctx }/ui/layuiCMS/page/login/login.js"></script>--%>
+<script type="text/javascript" src="${ctx}/ui/layuiCMS/layui/layui.js?v=1.0.9"></script>
+<%--<script type="text/javascript" src="${ctx}/ui/layuiCMS/page/login/login.js"></script>--%>
 <script type="text/javascript"
-        src="${ctx }/static/plugins/login/js/jquery.tips.js"></script>
+        src="${ctx}/static/plugins/login/js/jquery.tips.js"></script>
 <script type="text/javascript"
-        src="${ctx }/static/plugins/jquery-cookie-1.4.1/jquery.cookie.js?v=1.4.1"></script>
+        src="${ctx}/static/plugins/jquery-cookie-1.4.1/jquery.cookie.js?v=1.4.1"></script>
 </body>
 
 </html>

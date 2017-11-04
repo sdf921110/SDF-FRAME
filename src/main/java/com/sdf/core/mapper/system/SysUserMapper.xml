@@ -21,9 +21,9 @@
         </constructor>
     </resultMap>-->
 
-    <sql id="allColumns"> t.desc, t.name, t.phone,t.code, t.password, t.role_id,t.status, t.is_delete, t.create_id,t.update_id, t.create_user, t.update_user,t.create_time, t.update_time </sql>
+    <sql id="allColumns">t.desc, t.name, t.phone,t.code, t.password, t.role_id,t.status, t.is_delete, t.create_id,t.update_id, t.create_user, t.update_user,t.create_time, t.update_time</sql>
 
-    <sql id="tableName"> sys_user t </sql>
+    <sql id="tableName">sys_user t</sql>
 
     <insert id="insert" parameterType="com.sdf.core.pojo.system.SysUser">
         insert into <include refid="tableName"/> (<include refid="allColumns"/>)
@@ -40,7 +40,12 @@
     <select id="selectById" resultType="com.sdf.core.pojo.system.SysUser" parameterType="int">
         select
         t.id,<include refid="allColumns"/>
-        from <include refid="tableName"/> where t.id = #{code}
+        from <include refid="tableName"/> where t.id = #{id}
     </select>
+
+    <update id="update" parameterType="com.sdf.core.pojo.system.SysUser">
+        update <include refid="allColumns"/> set t.desc = #{desc},t.name = #{name},t.phone = #{phone},t.code = #{code},t.password = #{password},t.role_id = #{role_id},t.status = #{status},t.is_delete = #{is_delete},
+        t.update_id = #{update_id},t.update_user = #{update_user},t.update_time = #{update_time} where t.id = #{id}
+    </update>
 
 </mapper>

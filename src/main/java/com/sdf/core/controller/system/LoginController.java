@@ -1,5 +1,6 @@
 package com.sdf.core.controller.system;
 
+import com.sdf.common.constant.SysConstant;
 import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.controller.BaseController;
@@ -49,7 +50,7 @@ public class LoginController extends BaseController {
 
     /**
      * layuiCMS登录页
-     * http://localhost/Frame/ui/layuiCMS/page/login/login.html
+     * http://localhost/Frame/login/layuiCMS
      *
      * @Date: 2017/11/3 11:24
      * @Author: SDF
@@ -69,12 +70,12 @@ public class LoginController extends BaseController {
      */
     @RequestMapping("submit")
     @ResponseBody
-    public MSG submit(String code, String password, HttpSession session, HttpServletResponse response, HttpServletRequest request)
+    public MSG submit(String code, String password, String loginUrl, HttpSession session, HttpServletResponse response, HttpServletRequest request)
             throws Exception {
         MSG msg = new MSG();
-        SessionUser sessionUserPO = sysUserService.login_submit(code, password, request);
-        if (sessionUserPO != null) {
-            if (sessionUserPO.getStatus() != 1) {
+        SessionUser sessionUser = sysUserService.login_submit(code, password, request);
+        if (sessionUser != null) {
+            if (sessionUser.getSysUser().getStatus() != 1) {
                 return MSG.createErrorMSG("当前登录用户被限制，请联系管理员");
             }
             // 登录成功
@@ -94,14 +95,14 @@ public class LoginController extends BaseController {
             // sessionUserPO.setSystemName(name);
 
             // 保存session对象
-            session.setAttribute(BACK_SESSION_USER, sessionUserPO);
-            session.setAttribute(BACK_SESSION_LOGIN_PAGE, sessionUserPO);
+            session.setAttribute(BACK_SESSION_USER, sessionUser);
+            session.setAttribute(BACK_SESSION_LOGIN_PAGE, loginUrl);
             // 设置跳转到系统功能界面
-            List<Map<String, Object>> fMenus = sessionUserPO.getFmenus();
+            List<Map<String, Object>> fMenus = sessionUser.getFmenus();
             if (fMenus.isEmpty()) {
 //				msg.setInfo("/system/common/noRights.htm");
 //              msg.setInfo("/index/manage/page");
-                msg.setInfo("/ui/layuiCMS/index.html");
+                msg.setInfo("/index/layuiCMS");
             } else {
                 msg.setInfo(fMenus.get(0).get("menuUrl") + "");
             }
@@ -114,6 +115,28 @@ public class LoginController extends BaseController {
     }
 
     /**
+     * 解锁
+     *
+     * @Date: 2017/11/4 15:01
+     * @Author: SDF
+     * @Version: 1.0
+     */
+    @RequestMapping("unlocked")
+    @ResponseBody
+    public MSG unlocked(String password, HttpSession session)
+            throws Exception {
+        MSG msg = new MSG();
+        SessionUser sessionUser = (SessionUser) session.getAttribute(BACK_SESSION_USER);
+        if (sessionUser==null && sessionUser.getSysUser()==null){
+            return MSG.createErrorMSG(SysConstant.CODE_SYS_OUT_TIME, "超时请重新登录");
+        }
+        if(password.equals(sessionUser.getSysUser().getPassword())){
+            return MSG.createSuccessMSG("解锁成功");
+        }
+        return MSG.createErrorMSG(SysConstant.CODE_ERROR_LOGIN_PASSWORD, "密码错误，请重试");
+    }
+
+    /**
      * 退出登录
      *
      * @param session
@@ -121,10 +144,10 @@ public class LoginController extends BaseController {
      * @throws Exception
      * @time 2016年10月9日 上午11:21:01
      */
-    @RequestMapping("login_out")
-    public ModelAndView ModelAndView(HttpSession session) throws Exception {
+    @RequestMapping("out")
+    public ModelAndView out(HttpSession session) throws Exception {
         session.removeAttribute(BACK_SESSION_USER);
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:"+session.getAttribute(BACK_SESSION_LOGIN_PAGE));
     }
 
 }

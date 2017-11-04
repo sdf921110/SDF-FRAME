@@ -20,4 +20,6 @@ public interface SysUserDao {
 
     SysUser selectById(int id);
 
+    int update(SysUser sysUser);
+
 }

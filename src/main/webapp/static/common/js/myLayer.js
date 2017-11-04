@@ -60,6 +60,24 @@ var myLayer = {
             cancelFun
         });
     },
+    /**
+     * tips层
+     *
+     * @param content
+     *            提示内容
+     * @param selector
+     *            #id或者.class
+     * @param options
+     *            eg:{tips: 2} 1:上 2:右（默认） 3:下 4:左
+     * @param tipsMore
+     *           true:不销毁之前的
+     */
+    tips: function (content, selector, options, tipsMore) {
+        layer.tips('提示：' + content, selector, {
+            tips: options,
+            tipsMore: tipsMore
+        });
+    },
 
     // ********************************PC版********************************//
 

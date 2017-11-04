@@ -8,7 +8,7 @@ package com.sdf.common.pojo;
  */
 public class MSG {
     private boolean isSuccess = true;
-    private Object info = "执行成功";
+    private Object info = "操作成功";
     private int code = 0;
 
     /**

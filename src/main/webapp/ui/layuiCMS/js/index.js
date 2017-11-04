@@ -8,7 +8,7 @@ layui.config({
     $ = layui.jquery;
     tab = layui.bodyTab({
         openTabNum: "50",  //最大可打开窗口数量
-        url: "json/navs.json" //获取菜单json地址
+        url: contextPath + "/ui/layuiCMS/json/navs.json" //获取菜单json地址
     });
 
     //更换皮肤
@@ -150,13 +150,13 @@ layui.config({
             title: false,
             type: 1,
             content: '	<div class="admin-header-lock" id="lock-box">' +
-            '<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>' +
+            '<div class="admin-header-lock-img"><img src="'+contextPath+'/ui/layuiCMS/images/face.jpg"/></div>' +
             '<div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>' +
             '<div class="input_btn">' +
-            '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />' +
+            '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入登录密码解锁.." name="lockPwd" id="lockPwd" />' +
             '<button class="layui-btn" id="unlock">解锁</button>' +
             '</div>' +
-            '<p>请输入“123456”，否则不会解锁成功哦！！！</p>' +
+            // '<p>请输入“123456”，否则不会登录成功哦！！！</p>' +
             '</div>',
             closeBtn: 0,
             shade: 0.9
@@ -175,17 +175,33 @@ layui.config({
     // 解锁
     $("body").on("click", "#unlock", function () {
         if ($(this).siblings(".admin-header-lock-input").val() == '') {
-            layer.msg("请输入解锁密码！");
+            layer.tips('请输入登录密码', '#lockPwd', {
+                tips: 3
+            });
             $(this).siblings(".admin-header-lock-input").focus();
         } else {
-            if ($(this).siblings(".admin-header-lock-input").val() == "123456") {
-                window.sessionStorage.setItem("lockcms", false);
-                $(this).siblings(".admin-header-lock-input").val('');
-                layer.closeAll("page");
-            } else {
-                layer.msg("密码错误，请重新输入！");
-                $(this).siblings(".admin-header-lock-input").val('').focus();
-            }
+
+            // 验证登录密码
+            $.ajax({
+                type: "POST",
+                url: contextPath + '/login/unlocked',
+                data: {
+                    password: $(this).siblings(".admin-header-lock-input").val()
+                },
+                dataType: 'json',
+                cache: false,
+                success: function (msg) {
+                    if (msg.success) {
+                        window.sessionStorage.setItem("lockcms", false);
+                        $(this).siblings(".admin-header-lock-input").val('');
+                        layer.closeAll("page");
+                        myLayer.msg(msg.info,-1,1000);
+                    } else {
+                        myLayer.tips(msg.info, '#lockPwd', 3);
+                        $(this).siblings(".admin-header-lock-input").val('').focus();
+                    }
+                }
+            });
         }
     });
     $(document).on('keydown', function () {
@@ -236,9 +252,7 @@ layui.config({
                 })
                 if ($(window).width() > 432) {  //如果页面宽度不足以显示顶部“系统公告”按钮，则不提示
                     btn.on("click", function () {
-                        layer.tips('系统公告躲在了这里', '#showNotice', {
-                            tips: 3
-                        });
+                        myLayer.tips('系统公告躲在了这里', '#showNotice', 3);
                     })
                 }
             }

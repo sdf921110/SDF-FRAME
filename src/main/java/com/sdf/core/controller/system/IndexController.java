@@ -22,18 +22,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/index/manage/")
+@RequestMapping("/index/")
 public class IndexController extends BaseController {
 
     /**
-     * 后台首页
+     * layuiCMS主页
+     * http://localhost/Frame/index/layuiCMS
      *
-     * @return
-     * @time 2016年11月13日 下午8:00:45
+     * @Date: 2017/11/4 13:44
+     * @Author: SDF
+     * @Version: 1.0
      */
-    @RequestMapping(value = "page")
-    public String page() {
-        return BACK_PREFIX + "/system/index";
+    @RequestMapping(value = "layuiCMS")
+    public String layuiCMS() {
+        return BACK_PREFIX + "/system/index/layuiCMS";
     }
 
     /**
