@@ -13,3 +13,14 @@
 2017年11月2日
 1、增加了Mybatis后修复项目启动报错（Mapper中namespace命名重复了）
 2、增加登录页展示(hAdmin UI)
+
+2017年11月4日
+1、增加layuiCMS首页并解决页面js报错
+2、增加个人资料页面
+3、增加myLayer.js封装layer弹窗
+4、解锁功能实现（当前用户登录密码验证）
+
+2017年11月8日
+1、增加springMVC--接受日期类型参数处理（https://www.cnblogs.com/liuconglin/p/5777879.html）
+2、增加spring在service层获取session和request
+3、个人资料页面功能实现

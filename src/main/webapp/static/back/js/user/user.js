@@ -12,13 +12,25 @@ layui.config({
 		laydate = layui.laydate;
         loadProvince(); //加载省信息
 
+        // loadUserInfo(); //加载用户信息
+
     layui.upload({
-    	url : contextPath + "/ui/layuiCMS/json/userface.json",
+
+        // AjaxFileUpload.imgUpload(this,"user");
+
+    	// url : contextPath + "/ui/layuiCMS/json/userface.json",
+    	url : contextPath + "/upload/uploadImg?type=userImg",
     	success: function(res){
-    		var num = parseInt(4*Math.random());  //生成0-4的随机数
-    		//随机显示一个头像信息
-	    	userFace.src = contextPath + res.data[num].src;
-	    	window.sessionStorage.setItem('userFace',res.data[num].src);
+    	    // console.dir(res);
+
+    		// var num = parseInt(4*Math.random());  //生成0-4的随机数
+    		// //随机显示一个头像信息
+	    	// userFace.src = contextPath + res.data[num].src;
+	    	// window.sessionStorage.setItem('userFace',res.data[num].src);
+
+            $('#base').attr("src",contextPath + res.fileUrl)
+            $('#img').val(res.fileUrl)
+
 	    }
     });
 
@@ -41,83 +53,34 @@ layui.config({
         }
     })
 
-    //判断是否修改过用户信息，如果修改过则填充修改后的信息
-    if(window.sessionStorage.getItem('userInfo')){
-        var userInfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
-        var citys;
-        $(".realName").val(userInfo.realName); //用户名
-        $(".userSex input[value="+userInfo.sex+"]").attr("checked","checked"); //性别
-        $(".userPhone").val(userInfo.userPhone); //手机号
-        $(".userBirthday").val(userInfo.userBirthday); //出生年月
-        $(".userAddress select[name='province']").val(userInfo.province); //省
-        //填充省份信息，同时调取市级信息列表
-        var value = userInfo.province;
-        var d = value.split('_');
-        var code = d[0];
-        var count = d[1];
-        var index = d[2];
-        if (count > 0) {
-            loadCity(areaData[index].mallCityList);
-            citys = areaData[index].mallCityList
-        } else {
-            $form.find('select[name=city]').attr("disabled","disabled");
-        }
-        $(".userAddress select[name='city']").val(userInfo.city); //市
-        //填充市级信息，同时调取区县信息列表
-        var value = userInfo.city;
-        var d = value.split('_');
-        var code = d[0];
-        var count = d[1];
-        var index = d[2];
-        if (count > 0) {
-            loadArea(citys[index].mallAreaList);
-        } else {
-            $form.find('select[name=area]').attr("disabled","disabled");
-        }
-        $(".userAddress select[name='area']").val(userInfo.area); //区
-        for(key in userInfo){
-            if(key.indexOf("like") != -1){
-                $(".userHobby input[name='"+key+"']").attr("checked","checked");
-            }
-        }
-        $(".userEmail").val(userInfo.userEmail); //用户邮箱
-        $(".myself").val(userInfo.myself); //自我评价
-        form.render();
-    }
-
-    //判断是否修改过头像，如果修改过则显示修改后的头像，否则显示默认头像
-    if(window.sessionStorage.getItem('userFace')){
-    	$("#userFace").attr("src",window.sessionStorage.getItem('userFace'));
-    }else{
-    	$("#userFace").attr("src",contextPath + "/ui/layuiCMS/images/face.jpg");
-    }
-
     //提交个人资料
     form.on("submit(changeUser)",function(data){
-    	var index = layer.msg('提交中，请稍候',{icon: 16,time:false,shade:0.8});
-        //将填写的用户信息存到session以便下次调取
-        var key,userInfoHtml = '';
-        userInfoHtml = {
-            'realName' : $(".realName").val(),
-            'sex' : data.field.sex,
-            'userPhone' : $(".userPhone").val(),
-            'userBirthday' : $(".userBirthday").val(),
-            'province' : data.field.province,
-            'city' : data.field.city,
-            'area' : data.field.area,
-            'userEmail' : $(".userEmail").val(),
-            'myself' : $(".myself").val()
-        };
-        for(key in data.field){
-            if(key.indexOf("like") != -1){
-                userInfoHtml[key] = "on";
+        var index = layer.msg('提交中，请稍候',{icon: 16,time:false,shade:0.8});
+        $.ajax({
+            type: "POST",
+            url: contextPath + '/sys-user/submit',
+            data: $('#form-data').serialize(),
+            dataType: 'json',
+            cache: false,
+            // ajax请求失败
+            error: function (request) {
+                layer.close(index);
+                myLayer.alert("请求失败", 7);
+            },
+            // ajax请求成功
+            success: function (data) {
+                layer.close(index);
+                if (data.msg.success) {
+                    myLayer.msg("修改成功", -1, 1000,function(){
+                        location.reload();
+                    });
+                } else {
+                    myLayer.alert("请求失败", 7);
+                }
             }
-        }
-        window.sessionStorage.setItem("userInfo",JSON.stringify(userInfoHtml));
-        setTimeout(function(){
-            layer.close(index);
-            layer.msg("提交成功！");
-        },2000);
+        });
+
+
     	return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     })
 
@@ -133,6 +96,55 @@ layui.config({
     })
 
 })
+
+// 加载用户信息
+function loadUserInfo() {
+    $.ajax({
+        type: "POST",
+        url: contextPath + '/sys-user/getInfo',
+        data: {},
+        dataType: 'json',
+        cache: false,
+        // ajax请求之前
+        beforeSend: function () {
+            layer.load(0);
+        },
+        // ajax请求完成，不管成功失败
+        complete: function () {
+            layer.closeAll('loading');
+        },
+        // ajax请求失败
+        error: function (request) {
+            myLayer.alert("请求失败", 7);
+        },
+        // ajax请求成功
+        success: function (data) {
+            if (data.msg.success) {
+
+                var info = data.result;
+
+                $('#code').val(info.code);
+                $('#roleId').val(info.roleId);
+                $('#name').val(info.name);
+                $('#phone').val(info.phone);
+                $('#birstday').val(info.birstday);
+                $('#email').val(info.email);
+                $('#desc').val(info.desc);
+                $('#userFace').val(info.img);
+
+                $("input:radio").each(function(){
+                    if(Number($(this).val())==info.sex){
+                        $(this).attr("checked",true);
+                    }
+                });
+                // $("input[name=sex][value=" + info.sex + "]").attr("checked", true); //设置当前性别选中项
+
+            } else {
+                myLayer.alert("请求失败", 7);
+            }
+        }
+    });
+}
 
 //加载省数据
 function loadProvince() {

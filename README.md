@@ -1,6 +1,8 @@
 # SDF-FRAME
 后台框架SpringMVC+Mybatis+Shiro+Redis
 
+https://github.com/sdf921110/SDF-FRAME
+
 部署服务器需修改 Frame\src\main\webapp\static\plugins\ueditor-1.4.3.3\jsp\config.json
 
 ## 更新记录
@@ -33,3 +35,20 @@
 
 3、增加layuiCMS UI登录校验
 
+#### 2017年11月4日
+
+1、增加layuiCMS首页并解决页面js报错
+
+2、增加个人资料页面
+
+3、增加myLayer.js封装layer弹窗
+
+4、解锁功能实现（当前用户登录密码验证）
+
+#### 2017年11月8日
+
+1、增加springMVC--接受日期类型参数处理（https://www.cnblogs.com/liuconglin/p/5777879.html）
+
+2、增加spring在service层获取session和request
+
+3、个人资料页面功能实现

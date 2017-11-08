@@ -1,5 +1,7 @@
 package com.sdf.common.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,13 +16,13 @@ public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
-    protected Integer createId;
-    protected Integer updateId;
-    protected String createUser;
-    protected String updateUser;
-    protected Date createTime;
-    protected Date updateTime;
-    protected Integer isDelete;
+    protected Integer create_id;
+    protected Integer update_id;
+    protected String create_user;
+    protected String update_user;
+    protected Date create_time;
+    protected Date update_time;
+    protected Integer is_delete;// 是否删除(1:否 0:是)
     protected Integer status;
 
     public Integer getId() {
@@ -31,60 +33,60 @@ public class BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public Integer getCreateId() {
-        return createId;
+    public Integer getCreate_id() {
+        return create_id;
     }
 
-    public void setCreateId(Integer createId) {
-        this.createId = createId;
+    public void setCreate_id(Integer create_id) {
+        this.create_id = create_id;
     }
 
-    public Integer getUpdateId() {
-        return updateId;
+    public Integer getUpdate_id() {
+        return update_id;
     }
 
-    public void setUpdateId(Integer updateId) {
-        this.updateId = updateId;
+    public void setUpdate_id(Integer update_id) {
+        this.update_id = update_id;
     }
 
-    public String getCreateUser() {
-        return createUser;
+    public String getCreate_user() {
+        return create_user;
     }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
+    public void setCreate_user(String create_user) {
+        this.create_user = create_user;
     }
 
-    public String getUpdateUser() {
-        return updateUser;
+    public String getUpdate_user() {
+        return update_user;
     }
 
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
+    public void setUpdate_user(String update_user) {
+        this.update_user = update_user;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 
-    public Integer getIsDelete() {
-        return isDelete;
+    public Integer getIs_delete() {
+        return is_delete;
     }
 
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
+    public void setIs_delete(Integer is_delete) {
+        this.is_delete = is_delete;
     }
 
     public Integer getStatus() {
@@ -99,13 +101,13 @@ public class BaseEntity implements Serializable {
     public String toString() {
         return "BaseEntity{" +
                 "id=" + id +
-                ", createId=" + createId +
-                ", updateId=" + updateId +
-                ", createUser='" + createUser + '\'' +
-                ", updateUser='" + updateUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", isDelete=" + isDelete +
+                ", create_id=" + create_id +
+                ", update_id=" + update_id +
+                ", create_user='" + create_user + '\'' +
+                ", update_user='" + update_user + '\'' +
+                ", create_time=" + create_time +
+                ", update_time=" + update_time +
+                ", is_delete=" + is_delete +
                 ", status=" + status +
                 '}';
     }

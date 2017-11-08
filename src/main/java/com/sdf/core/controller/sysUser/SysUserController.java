@@ -6,16 +6,17 @@ import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.controller.BaseController;
 import com.sdf.core.pojo.system.SysUser;
 import com.sdf.core.service.system.ISysUserService;
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,12 +44,34 @@ public class SysUserController extends BaseController {
      * @Version: 1.0
      */
     @RequestMapping(value = "info")
-    public String info() {
+    public String info(HttpSession session,Model model) {
+        SysUser modelMap = getSysUser(session);
+        model.addAttribute("modelMap",modelMap);
         return BACK_PREFIX + "/sysUser/info";
     }
 
     /**
-     * 编辑个人信息
+     * 获取个人信息
+     *
+     * @Date: 2017/11/7 17:44
+     * @Author: SDF
+     * @Version: 1.0
+     */
+    @RequestMapping("getInfo")
+    @ResponseBody
+    public HashMap<String,Object> getInfo(HttpSession session)
+            throws Exception {
+        HashMap<String,Object> result = new HashMap<>();
+
+        SysUser sysUser = getSysUser(session);
+
+        result.put("result",sysUser);
+        result.put("msg",MSG.createSuccessMSG());
+        return result;
+    }
+
+    /**
+     * 提交个人信息
      *
      * @Date: 2017/11/4 16:18
      * @Author: SDF
@@ -56,16 +79,11 @@ public class SysUserController extends BaseController {
      */
     @RequestMapping("submit")
     @ResponseBody
-    public MSG submit(SysUser sysUser, HttpSession session)
+    public HashMap<String,Object> submit(SysUser sysUser, HttpSession session)
             throws Exception {
-        MSG msg = new MSG();
-        sysUserService.submit(sysUser,session);
-
-
-
-
-
-        return msg;
+        HashMap<String,Object> result = new HashMap<>();
+        sysUserService.submit(result,sysUser,session);
+        return result;
     }
 
 

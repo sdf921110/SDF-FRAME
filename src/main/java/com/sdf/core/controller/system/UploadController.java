@@ -1,6 +1,6 @@
 package com.sdf.core.controller.system;
 
-import com.sdf.common.config.SysConfig;
+import com.sdf.common.constant.SysConstant;
 import com.sdf.common.pojo.MSG;
 import com.sdf.common.utils.*;
 import com.sdf.core.controller.BaseController;
@@ -67,7 +67,7 @@ public class UploadController extends BaseController {
             fileUrls.setIsThumb(isThumb);
             fileUrls.setIsImg(isImg);
             fileUrls.setFileUrl(fileUrl);
-            fileUrls.setCreateUser(this.getSesseionUserName(session));
+            fileUrls.setCreate_user(this.getSesseionUserName(session));
             // 保存图片
             msg.setCode(sysFileUrlService.insert(fileUrls));
 
@@ -91,25 +91,23 @@ public class UploadController extends BaseController {
      */
     @RequestMapping(value = "uploadImg")
     @ResponseBody
-    public HashMap<String, Object> uploadImg(@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile,
+    public HashMap<String, Object> uploadImg(@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile, // input输入框 name="uploadFile"
                                              HttpServletRequest request, String type, String scale) {
         HashMap<String, Object> result = new HashMap<>();
-
-//		String suffix = PropertiesConfig.getUPLOAD_IMG_PATH(); // D:/kmUpload/img/
 
         try {
             String fileName = uploadFile.getOriginalFilename();
 //			String fileUrl = copyFileToOther(uploadFile, suffix, type, request);
             String fileUrl = copyFile(uploadFile, type, request);
-            logger.info("------------------->APP上传图片: " + fileName + "  目标地址：" + fileUrl);
+            logger.info("------------------->ajax图片上传: " + fileName + "  目标地址：" + fileUrl);
 
             String zoomUrl = "";
             if (null != scale && !"".equals(scale)) {
 //				zoomUrl = ImgThumbnailatorUtil.createZoomImg(suffix, fileUrl, Float.valueOf(scale));
-                logger.info("------------------->APP上传图片: " + fileName + "  缩略图地址：" + zoomUrl);
+                logger.info("------------------->ajax图片上传: " + fileName + "  缩略图地址：" + zoomUrl);
             }
 
-            result.put("imgServer", SysConfig.UPLOAD_IMAGE_SERVER);
+            result.put("imgServer", SysConstant.UPLOAD_IMAGE_SERVER);
             result.put("zoomUrl", zoomUrl);
             result.put("fileUrl", fileUrl);
             result.put("fileName", fileName);
@@ -121,7 +119,6 @@ public class UploadController extends BaseController {
             e.printStackTrace();
         }
         return result;
-
     }
 
     /**

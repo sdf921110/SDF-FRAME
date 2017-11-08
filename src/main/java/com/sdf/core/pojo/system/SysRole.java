@@ -50,13 +50,13 @@ public class SysRole extends BaseEntity {
     public SysRole(ResultSet rs) throws SQLException {
         super.id = rs.getInt("id");
         super.status = rs.getInt("status");
-        super.isDelete = rs.getInt("is_delete");
-        super.createTime = rs.getTimestamp("create_time");
-        super.updateTime = rs.getTimestamp("update_time");
-        super.createUser = rs.getString("create_user");
-        super.updateUser = rs.getString("update_user");
-        super.createId = rs.getInt("create_id");
-        super.updateId = rs.getInt("update_id");
+        super.is_delete = rs.getInt("is_delete");
+        super.create_time = rs.getTimestamp("create_time");
+        super.update_time = rs.getTimestamp("update_time");
+        super.create_user = rs.getString("create_user");
+        super.update_user = rs.getString("update_user");
+        super.create_id = rs.getInt("create_id");
+        super.update_id = rs.getInt("update_id");
 
         this.name = rs.getString("name");
         this.desc = rs.getString("desc");
@@ -104,13 +104,13 @@ public class SysRole extends BaseEntity {
                 ", desc='" + desc + '\'' +
                 ", is_admin=" + is_admin +
                 ", id=" + id +
-                ", createId=" + createId +
-                ", updateId=" + updateId +
-                ", createUser='" + createUser + '\'' +
-                ", updateUser='" + updateUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", isDelete=" + isDelete +
+                ", create_id=" + create_id +
+                ", update_id=" + update_id +
+                ", create_user='" + create_user + '\'' +
+                ", update_user='" + update_user + '\'' +
+                ", create_time=" + create_time +
+                ", update_time=" + update_time +
+                ", is_delete=" + is_delete +
                 ", status=" + status +
                 '}';
     }

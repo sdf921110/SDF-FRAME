@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -89,16 +90,60 @@ public class SysUserServiceImpl extends BaseService implements ISysUserService {
     }
 
     @Override
-    public MSG submit(SysUser sysUser, HttpSession session) {
-        int update = sysUserDao.update(sysUser);
-        if (update > 0) {
-            SessionUser sessionUser = (SessionUser) session.getAttribute(BaseController.BACK_SESSION_USER);
-            // 编辑的用户信息为当前登录用户，更新session
-            if (sessionUser != null && sessionUser.getSysUser().getId() == sysUser.getId()) {
-                sessionUser.setSysUser(sysUser);
+    public SysUser getInfo(Integer userId) {
+        return null;
+    }
+
+    /**
+     * 提交用户信息
+     *
+     * @param result
+     * @param sysUser
+     * @param session
+     */
+    @Override
+    public void submit(HashMap<String, Object> result, SysUser sysUser, HttpSession session) {
+        int id = 0;
+        if (sysUser.getId() == null) {
+            // 新增
+            insertCreate(sysUser);
+            id = sysUserDao.insert(sysUser);
+        } else {
+            // 编辑
+            updateCreate(sysUser);
+            id = sysUserDao.update(sysUser);
+            if (id > 0) {
+                SessionUser sessionUser = (SessionUser) session.getAttribute(BaseController.BACK_SESSION_USER);
+                // 编辑的用户信息为当前登录用户，更新session
+                if (sessionUser != null && sessionUser.getSysUser().getId() == sysUser.getId()) {
+                    sessionUser.setSysUser(sysUser);
+                }
             }
-            return MSG.createSuccessMSG();
         }
-        return MSG.createErrorMSG();
+        result.put("msg", id > 0 ? MSG.createSuccessMSG() : MSG.createErrorMSG());
+
+/*
+        if(sysUser.getId()==null){
+            // 新增
+            int insert = sysUserDao.insert(sysUser);
+            if (insert > 0) {
+                result.put("msg",MSG.createSuccessMSG());
+            }
+            result.put("msg",MSG.createErrorMSG());
+        }else{
+            // 编辑
+            int update = sysUserDao.update(sysUser);
+            if (update > 0) {
+                SessionUser sessionUser = (SessionUser) session.getAttribute(BaseController.BACK_SESSION_USER);
+                // 编辑的用户信息为当前登录用户，更新session
+                if (sessionUser != null && sessionUser.getSysUser().getId() == sysUser.getId()) {
+                    sessionUser.setSysUser(sysUser);
+                }
+                result.put("msg",MSG.createSuccessMSG());
+            }
+            result.put("msg",MSG.createErrorMSG());
+        }
+*/
+
     }
 }

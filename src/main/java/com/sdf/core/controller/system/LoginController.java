@@ -4,7 +4,6 @@ import com.sdf.common.constant.SysConstant;
 import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.controller.BaseController;
-import com.sdf.core.service.system.ISysFileUrlService;
 import com.sdf.core.service.system.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -13,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -80,11 +79,10 @@ public class LoginController extends BaseController {
             }
             // 登录成功
             msg.setSuccess(true);
-            // Cookie cookie = new Cookie("systemName",
-            // sessionUserPO.getSystemName());
-            // cookie.setMaxAge(60 * 60 * 24 * 30); // cookie 保存30天
-            // cookie.setPath("/"); // 这个不能少
-            // response.addCookie(cookie);
+            Cookie cookie = new Cookie("loginUrl", loginUrl);
+            cookie.setMaxAge(60 * 60 * 24 * 30); // cookie 保存30天
+            cookie.setPath("/"); // 这个不能少
+            response.addCookie(cookie);
 
             // 设置左上角系统名称
             // SysContactUsPO contactUs = aboutService.getContactUs();
@@ -127,10 +125,10 @@ public class LoginController extends BaseController {
             throws Exception {
         MSG msg = new MSG();
         SessionUser sessionUser = (SessionUser) session.getAttribute(BACK_SESSION_USER);
-        if (sessionUser==null && sessionUser.getSysUser()==null){
+        if (sessionUser == null && sessionUser.getSysUser() == null) {
             return MSG.createErrorMSG(SysConstant.CODE_SYS_OUT_TIME, "超时请重新登录");
         }
-        if(password.equals(sessionUser.getSysUser().getPassword())){
+        if (password.equals(sessionUser.getSysUser().getPassword())) {
             return MSG.createSuccessMSG("解锁成功");
         }
         return MSG.createErrorMSG(SysConstant.CODE_ERROR_LOGIN_PASSWORD, "密码错误，请重试");
@@ -147,7 +145,7 @@ public class LoginController extends BaseController {
     @RequestMapping("out")
     public ModelAndView out(HttpSession session) throws Exception {
         session.removeAttribute(BACK_SESSION_USER);
-        return new ModelAndView("redirect:"+session.getAttribute(BACK_SESSION_LOGIN_PAGE));
+        return new ModelAndView("redirect:" + session.getAttribute(BACK_SESSION_LOGIN_PAGE));
     }
 
 }

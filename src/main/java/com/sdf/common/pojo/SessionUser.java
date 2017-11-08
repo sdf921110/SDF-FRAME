@@ -2,6 +2,7 @@ package com.sdf.common.pojo;
 
 import com.sdf.core.pojo.system.SysUser;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
  * @author SDF
  * @date 2016年11月9日
  */
-public class SessionUser extends BaseEntity {
+public class SessionUser implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -264,7 +265,6 @@ public class SessionUser extends BaseEntity {
     public static SessionUser createSessionUser(SysUser sysUser, List<Map<String, Object>> menus) {
         SessionUser su = new SessionUser();
         Integer id = sysUser.getId();
-        su.setId(id);
         su.setUser_id(id);
         su.setName(sysUser.getName());
         su.setUser_name(sysUser.getCode());

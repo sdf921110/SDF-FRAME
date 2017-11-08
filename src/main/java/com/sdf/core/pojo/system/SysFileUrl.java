@@ -58,16 +58,41 @@ public class SysFileUrl extends BaseEntity {
     public SysFileUrl() {
     }
 
+    /**
+     * 重写toString方法
+     */
+    @Override
+    public String toString() {
+        return "SysFileUrl{" +
+                "fileName='" + fileName + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", tableId=" + tableId +
+                ", tableName='" + tableName + '\'' +
+                ", fileUrl='" + fileUrl + '\'' +
+                ", isThumb=" + isThumb +
+                ", isImg=" + isImg +
+                ", id=" + id +
+                ", create_id=" + create_id +
+                ", update_id=" + update_id +
+                ", create_user='" + create_user + '\'' +
+                ", update_user='" + update_user + '\'' +
+                ", create_time=" + create_time +
+                ", update_time=" + update_time +
+                ", is_delete=" + is_delete +
+                ", status=" + status +
+                '}';
+    }
+
     public SysFileUrl(ResultSet rs) throws SQLException {
         super.id = rs.getInt("id");
         super.status = rs.getInt("status");
-        super.isDelete = rs.getInt("isDelete");
-        super.createTime = rs.getTimestamp("createTime");
-        super.updateTime = rs.getTimestamp("updateTime");
-        super.createUser = rs.getString("createUser");
-        super.updateUser = rs.getString("updateUser");
-        super.createId = rs.getInt("createId");
-        super.updateId = rs.getInt("updateId");
+        super.is_delete = rs.getInt("is_delete");
+        super.create_time = rs.getTimestamp("create_time");
+        super.update_time = rs.getTimestamp("update_time");
+        super.create_user = rs.getString("create_user");
+        super.update_user = rs.getString("update_user");
+        super.create_id = rs.getInt("create_id");
+        super.update_id = rs.getInt("update_id");
 
         this.fileName = rs.getString("fileName");
         this.fileType = rs.getString("fileType");
@@ -137,28 +162,4 @@ public class SysFileUrl extends BaseEntity {
         this.isImg = isImg;
     }
 
-    /**
-     * 重写toString方法
-     */
-    @Override
-    public String toString() {
-        return "SysFileUrl{" +
-                "fileName='" + fileName + '\'' +
-                ", fileType='" + fileType + '\'' +
-                ", tableId=" + tableId +
-                ", tableName='" + tableName + '\'' +
-                ", fileUrl='" + fileUrl + '\'' +
-                ", isThumb=" + isThumb +
-                ", isImg=" + isImg +
-                ", id=" + id +
-                ", createId=" + createId +
-                ", updateId=" + updateId +
-                ", createUser='" + createUser + '\'' +
-                ", updateUser='" + updateUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", isDelete=" + isDelete +
-                ", status=" + status +
-                '}';
-    }
 }

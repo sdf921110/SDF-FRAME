@@ -4,6 +4,7 @@ import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.controller.BaseController;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
@@ -28,24 +29,30 @@ public class PCInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
 
+        // 开发使用管理员session
+
+
         SessionUser obj = (SessionUser) request.getSession().getAttribute(BaseController.BACK_SESSION_USER);
 
         if (obj == null) {
-            // String systemName = "";
-            // Cookie[] cookies = request.getCookies();
-            // if (cookies != null) {
-            // for (int i = 0; i < cookies.length; i++) {
-            // if (cookies[i].getName().equals("systemName")) {
-            // systemName = cookies[i].getValue();
-            // }
-            // }
-            // }
-            // System.err.println("systemName="+systemName);
+            String loginUrl = "";
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (int i = 0; i < cookies.length; i++) {
+                    if (cookies[i].getName().equals("loginUrl")) {
+                        loginUrl = cookies[i].getValue();
+                        break;
+                    }
+                }
+            }
             PrintWriter out = response.getWriter();
             StringBuilder sb = new StringBuilder();
             sb.append("<script type='text/javascript' charset='utf-8'>");
-            // sb.append("alert('提示：页面过期，请重新登录.');");
-            sb.append("window.location.href='" + request.getContextPath() + "/login';");
+            sb.append("alert('提示：页面过期，请重新登录.');");
+//            sb.append("window.location.href='" + request.getContextPath() + loginUrl+ "';");
+
+            request.getSession().setAttribute(BaseController.BACK_SESSION_LOGIN_PAGE, loginUrl);
+            sb.append("window.location.href='" + request.getContextPath() + "/login/out';");
             sb.append("</script>");
             out.print(sb.toString());
             out.close();

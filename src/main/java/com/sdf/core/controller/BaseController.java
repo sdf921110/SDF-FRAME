@@ -1,6 +1,7 @@
 package com.sdf.core.controller;
 
 import com.sdf.common.pojo.SessionUser;
+import com.sdf.core.pojo.system.SysUser;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +63,21 @@ public class BaseController {
     }
 
     /**
+     * 获取操作人对象
+     *
+     * @param session
+     * @return
+     * @time 2016年11月22日 上午10:00:59
+     */
+    protected SysUser getSysUser(HttpSession session) {
+        if (session.getAttribute(BACK_SESSION_USER) == null) {
+            return null;
+        }
+        SessionUser SessionUser = (SessionUser) session.getAttribute(BACK_SESSION_USER);
+        return SessionUser.getSysUser();
+    }
+
+    /**
      * 获取操作人
      *
      * @param session
@@ -69,11 +85,8 @@ public class BaseController {
      * @time 2016年11月22日 上午10:00:59
      */
     protected String getSesseionUserName(HttpSession session) {
-        if (session.getAttribute(BACK_SESSION_USER) == null) {
-            return null;
-        }
-        SessionUser SessionUser = (SessionUser) session.getAttribute(BACK_SESSION_USER);
-        return SessionUser.getName();
+        SysUser sysUser = getSysUser(session);
+        return sysUser.getName();
     }
 
     /**
@@ -84,11 +97,8 @@ public class BaseController {
      * @time 2017年3月24日 下午3:33:10
      */
     protected Integer getSesseionUserId(HttpSession session) {
-        if (session.getAttribute(BACK_SESSION_USER) == null) {
-            return null;
-        }
-        SessionUser SessionUser = (SessionUser) session.getAttribute(BACK_SESSION_USER);
-        return SessionUser.getId();
+        SysUser sysUser = getSysUser(session);
+        return sysUser.getId();
     }
 
     // @SuppressWarnings("unused")

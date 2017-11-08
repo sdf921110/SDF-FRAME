@@ -1,4 +1,6 @@
-<!DOCTYPE PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<html lang="en">
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -27,6 +29,7 @@
 <script src="${ctx}/static/plugins/jquery-1.8.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="${ctx}/ui/layuiCMS/layui/layui.js"></script>
+<%--<script type="text/javascript" src="${ctx}/ui/layuiCMS/layui/lay/dest/layui.all.js"></script>--%>
 
 <%--GET http://localhost/Frame/index/js/bodyTab.js 404--%>
 <%--<script type="text/javascript" src="${ctx}/ui/layuiCMS/js/bodyTab.js"></script>--%>
@@ -34,19 +37,19 @@
 <script type="text/javascript" src="${ctx}/ui/layuiCMS/js/leftNav.js"></script>
 
 <!-- layer弹层组件 -->
-<link rel="stylesheet"
+<%--<link rel="stylesheet"
       href="${ctx}/static/plugins/layer-v3.1.0/layer/theme/default/layer.css?v=3.1.0"
-      type="text/css"/>
-<script type="text/javascript"
-        src="${ctx}/static/plugins/layer-v3.1.0/layer/layer.js?v=3.1.0"></script>
+      type="text/css"/>--%>
+<%--<script type="text/javascript"
+        src="${ctx}/static/plugins/layer-v3.1.0/layer/layer.js?v=3.1.0"></script>--%>
 <script type="text/javascript"
         src="${ctx}/static/common/js/myLayer.js?v=1.0.0"></script>
 <!-- layer弹层组件 -->
 
-<%--
+<script src="${ctx}/static/common/js/base64ImgUpload.js?v=1.0.0"></script>
 <script src="${ctx}/static/common/js/ajaxfileupload.js?v=1.0.0"></script>
 <script src="${ctx}/static/common/js/myAjaxFileUpload.js?v=1.0.0"></script>
-
+<%--
 <!-- blueimp gallery -->
 <script
         src="${ctx}/ui/hAdmin/js/plugins/blueimp/jquery.blueimp-gallery.min.js?v=2.11.1"></script>--%>

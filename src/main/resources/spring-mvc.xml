@@ -12,7 +12,23 @@
 
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.sdf.core.controller"/>
-    <mvc:annotation-driven/>
+
+    <!--  springMvc 接受日期类型参数处理 start -->
+
+    <!-- 第三步：注册处理器映射器/处理器适配器 ，添加conversion-service属性-->
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <!-- 第二步： 创建convertion-Service ，并注入dateConvert-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dateConvert"/>
+            </set>
+        </property>
+    </bean>
+    <!-- 第一步:  创建自定义日期转换规则 -->
+    <bean id="dateConvert" class="com.sdf.common.converter.DateConvert"/>
+
+    <!-- springMvc 接受日期类型参数处理 end -->
 
     <!-- 对静态资源文件的访问 不支持访问WEB-INF目录 -->
     <mvc:default-servlet-handler/>

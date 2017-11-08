@@ -2,50 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sdf.core.mapper.system.SysUserDao">
 
-    <!--<resultMap id="BaseResultMap" type="com.sdf.core.pojo.system.SysUser">
-        <constructor>
-            <arg column="desc" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="phone" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="code" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="role_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="status" jdbcType="INTEGER" javaType="java.lang.Boolean"/>
-            <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Boolean"/>
-            <arg column="create_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="update_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
-            <arg column="create_user" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="update_user" jdbcType="VARCHAR" javaType="java.lang.String"/>
-            <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-            <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
-        </constructor>
-    </resultMap>-->
-
-    <sql id="allColumns">t.desc, t.name, t.phone,t.code, t.password, t.role_id,t.status, t.is_delete, t.create_id,t.update_id, t.create_user, t.update_user,t.create_time, t.update_time</sql>
+    <sql id="allColumns">t.desc,t.name,t.phone,t.code,t.password,t.role_id,t.status,t.is_delete,t.create_id,t.update_id,t.create_user,
+      t.update_user,t.create_time,t.update_time,t.email,t.province,t.city,t.county,t.town,t.village,t.birstday,t.img,t.sex,t.hobby </sql>
 
     <sql id="tableName">sys_user t</sql>
 
     <insert id="insert" parameterType="com.sdf.core.pojo.system.SysUser">
-        insert into <include refid="tableName"/> (<include refid="allColumns"/>)
+        insert into
+        <include refid="tableName"/>
+        (<include refid="allColumns"/>)
         values (#{desc}, #{name}, #{phone},#{code}, #{password}, #{roleId},#{status}, #{isDelete},
         #{createId},#{updateId}, #{createUser}, #{updateUser},#{createTime}, #{updateTime})
     </insert>
 
     <select id="selectByCode" resultType="com.sdf.core.pojo.system.SysUser" parameterType="String">
         select
-        t.id,<include refid="allColumns"/>
-        from <include refid="tableName"/> where t.code = #{code}
+        t.id,
+        <include refid="allColumns"/>
+        from
+        <include refid="tableName"/>
+        where t.code = #{code}
     </select>
 
     <select id="selectById" resultType="com.sdf.core.pojo.system.SysUser" parameterType="int">
         select
-        t.id,<include refid="allColumns"/>
-        from <include refid="tableName"/> where t.id = #{id}
+        t.id,
+        <include refid="allColumns"/>
+        from
+        <include refid="tableName"/>
+        where t.id = #{id}
     </select>
 
     <update id="update" parameterType="com.sdf.core.pojo.system.SysUser">
-        update <include refid="allColumns"/> set t.desc = #{desc},t.name = #{name},t.phone = #{phone},t.code = #{code},t.password = #{password},t.role_id = #{role_id},t.status = #{status},t.is_delete = #{is_delete},
-        t.update_id = #{update_id},t.update_user = #{update_user},t.update_time = #{update_time} where t.id = #{id}
+        update
+        <include refid="tableName"/>
+        set t.desc = #{desc},t.name = #{name},t.phone = #{phone},t.code = #{code},t.role_id =
+        #{role_id},
+        t.status = #{status},t.is_delete = #{is_delete},t.update_id = #{update_id},t.update_user =
+        #{update_user},t.update_time = #{update_time},
+        t.email = #{email},t.province = #{province},t.city = #{city},t.county = #{county},t.town = #{town},t.village =
+        #{village},
+        t.birstday = #{birstday},t.img = #{img},t.sex = #{sex},t.hobby = #{hobby} where t.id = #{id}
     </update>
 
 </mapper>

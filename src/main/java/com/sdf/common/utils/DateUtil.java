@@ -214,7 +214,6 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
             date = (Date) sdf.parse(cst);
             formatStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
         } catch (ParseException e) {
-            // TODO 自动生成的 catch 块
             e.printStackTrace();
             return "";
         }

@@ -18,7 +18,7 @@ var AjaxFileUpload = {
 				return;
 			}
 			jQuery.ajaxFileUpload({
-				url : contextPath + '/upload/addAjaxImg?type='+type,
+				url : contextPath + '/upload/uploadImg?type='+type,
 				secureuri : false,
 				fileElementId : 'imgUrlFile',
 				dataType : 'json',
