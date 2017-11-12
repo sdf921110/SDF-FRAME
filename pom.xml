@@ -208,6 +208,14 @@
             <version>1.1.2-offical</version>
         </dependency>
 
+       <!-- 验证码图片生成 jcaptcha-->
+        <dependency>
+            <groupId>com.octo.captcha</groupId>
+            <artifactId>jcaptcha</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
         <!--单元测试依赖 -->
         <dependency>
             <groupId>junit</groupId>

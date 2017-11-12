@@ -22,7 +22,7 @@ public class BaseEntity implements Serializable {
     protected String update_user;
     protected Date create_time;
     protected Date update_time;
-    protected Integer is_delete;// 是否删除(1:否 0:是)
+    protected Integer is_delete;// 是否删除(1:是 0:否)
     protected Integer status;
 
     public Integer getId() {

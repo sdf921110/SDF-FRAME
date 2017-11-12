@@ -43,7 +43,7 @@
 <%--<script type="text/javascript"
         src="${ctx}/static/plugins/layer-v3.1.0/layer/layer.js?v=3.1.0"></script>--%>
 <script type="text/javascript"
-        src="${ctx}/static/common/js/myLayer.js?v=1.0.0"></script>
+        src="${ctx}/static/common/js/myLayer.js?v=1.0.1"></script>
 <!-- layer弹层组件 -->
 
 <script src="${ctx}/static/common/js/base64ImgUpload.js?v=1.0.0"></script>
@@ -64,6 +64,15 @@
             });
         } catch (e) {
 
+        }
+
+        /**
+         * 重写js alert
+         *
+         * @param data
+         */
+        window.alert = function (data) {
+            myLayer.alert(data);
         }
     });
     var contextPath = '${ctx}';

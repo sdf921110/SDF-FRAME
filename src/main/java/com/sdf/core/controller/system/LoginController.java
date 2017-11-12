@@ -1,6 +1,7 @@
 package com.sdf.core.controller.system;
 
 import com.sdf.common.constant.SysConstant;
+import com.sdf.common.exception.CustomRuntimeException;
 import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
 import com.sdf.core.controller.BaseController;
@@ -69,45 +70,52 @@ public class LoginController extends BaseController {
      */
     @RequestMapping("submit")
     @ResponseBody
-    public MSG submit(String code, String password, String loginUrl, HttpSession session, HttpServletResponse response, HttpServletRequest request)
-            throws Exception {
+    public MSG submit(String code, String password, String loginUrl, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
         MSG msg = new MSG();
-        SessionUser sessionUser = sysUserService.login_submit(code, password, request);
-        if (sessionUser != null) {
-            if (sessionUser.getSysUser().getStatus() != 1) {
-                return MSG.createErrorMSG("当前登录用户被限制，请联系管理员");
-            }
-            // 登录成功
-            msg.setSuccess(true);
-            Cookie cookie = new Cookie("loginUrl", loginUrl);
-            cookie.setMaxAge(60 * 60 * 24 * 30); // cookie 保存30天
-            cookie.setPath("/"); // 这个不能少
-            response.addCookie(cookie);
+        try {
+            SessionUser sessionUser = sysUserService.login_submit(code, password, request);
+            if (sessionUser != null) {
+                if (sessionUser.getSysUser().getStatus() != 1) {
+                    return MSG.createErrorMSG("当前登录用户被限制，请联系管理员");
+                }
+                // 登录成功
+                msg.setSuccess(true);
+                Cookie cookie = new Cookie("loginUrl", loginUrl);
+                cookie.setMaxAge(60 * 60 * 24 * 30); // cookie 保存30天
+                cookie.setPath("/"); // 这个不能少
+                response.addCookie(cookie);
 
-            // 设置左上角系统名称
-            // SysContactUsPO contactUs = aboutService.getContactUs();
-            // String name = "微信网红";
-            // if (contactUs != null) {
-            // name = contactUs.getCompanyName();
-            // }
-            // sessionUserPO.setSystemName(name);
+                // 设置左上角系统名称
+                // SysContactUsPO contactUs = aboutService.getContactUs();
+                // String name = "微信网红";
+                // if (contactUs != null) {
+                // name = contactUs.getCompanyName();
+                // }
+                // sessionUserPO.setSystemName(name);
 
-            // 保存session对象
-            session.setAttribute(BACK_SESSION_USER, sessionUser);
-            session.setAttribute(BACK_SESSION_LOGIN_PAGE, loginUrl);
-            // 设置跳转到系统功能界面
-            List<Map<String, Object>> fMenus = sessionUser.getFmenus();
-            if (fMenus.isEmpty()) {
+                // 保存session对象
+                session.setAttribute(BACK_SESSION_USER, sessionUser);
+                session.setAttribute(BACK_SESSION_LOGIN_PAGE, loginUrl);
+                // 设置跳转到系统功能界面
+                List<Map<String, Object>> fMenus = sessionUser.getFmenus();
+                if (fMenus.isEmpty()) {
 //				msg.setInfo("/system/common/noRights.htm");
 //              msg.setInfo("/index/manage/page");
-                msg.setInfo("/index/layuiCMS");
+                    msg.setInfo("/index/layuiCMS");
+                } else {
+                    msg.setInfo(fMenus.get(0).get("menuUrl") + "");
+                }
             } else {
-                msg.setInfo(fMenus.get(0).get("menuUrl") + "");
+                // 登录失败
+                msg.setSuccess(false);
+                msg.setInfo("用户名或密码不正确");
             }
-        } else {
+
+        } catch (CustomRuntimeException e) {
             // 登录失败
             msg.setSuccess(false);
-            msg.setInfo("用户名或密码不正确");
+            msg.setInfo(e.getMessage());
+//            throw new CustomRuntimeException(e.getMessage(),e);
         }
         return msg;
     }

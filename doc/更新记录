@@ -24,3 +24,10 @@
 1、增加springMVC--接受日期类型参数处理（https://www.cnblogs.com/liuconglin/p/5777879.html）
 2、增加spring在service层获取session和request
 3、个人资料页面功能实现
+
+2017年11月10日
+1、Spring MVC 统一异常信息处理，增加前端服务器堆栈异常信息展示
+
+2017年11月12日
+1、完善个人信息页面
+2、增加省市区县街道社区五级联动

@@ -44,6 +44,10 @@
           <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.8" />
           <element id="library" level="project" name="Maven: cn.songxinqiang:com.baidu.ueditor:1.1.2-offical" />
           <element id="library" level="project" name="Maven: org.json:json:20160212" />
+          <element id="library" level="project" name="Maven: com.octo.captcha:jcaptcha:1.0" />
+          <element id="library" level="project" name="Maven: com.octo.captcha:jcaptcha-api:1.0" />
+          <element id="library" level="project" name="Maven: com.jhlabs:imaging:01012005" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

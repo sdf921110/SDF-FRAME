@@ -61,6 +61,39 @@ var myLayer = {
         });
     },
     /**
+     * 异常确认框
+     *
+     * @param content
+     *            提示内容
+     * @param message
+     *            异常内容
+     * @param successFun
+     *            成功方法
+     * @param cancelFun
+     *            取消方法
+     */
+    errorConfrim: function (content, message, successFun, cancelFun) {
+        layer.confirm('提示：' + content, {
+            btn: ['详细信息...', '确认']
+        }, function (index) {
+            // 关闭异常确认框
+            layer.close(index);
+            // 打开异常信息详情页面
+            layer.open({
+                type: 1,
+                title: '异常信息',
+                shadeClose: true,
+                shade: 0.8,
+                scrollbar: false, // 屏蔽浏览器滚动条
+                skin: 'layui-layer-rim', // 加上边框
+                area: ['800px', '60%'],
+                content: message // iframe的内容
+            });
+        }, function () {
+            cancelFun
+        });
+    },
+    /**
      * tips层
      *
      * @param content

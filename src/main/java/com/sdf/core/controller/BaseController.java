@@ -19,8 +19,8 @@ import java.util.HashMap;
  */
 public class BaseController {
 
-    public final String BACK_PREFIX = "back";
-    public final String FRONT_PREFIX = "front";
+    public static final String BACK_PREFIX = "back";
+    public static final String FRONT_PREFIX = "front";
 
     public static final String BACK_SESSION_USER = "back_session_user";
     // 后台登录页

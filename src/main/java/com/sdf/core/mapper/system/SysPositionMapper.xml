@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdf.core.mapper.system.SysPositionDao">
+
+    <sql id="allColumns"> t.id,t.parent_id,t.name,t.level,t.sort </sql>
+
+    <sql id="tableName">position_all t</sql>
+
+    <insert id="insert" parameterType="com.sdf.core.pojo.system.SysPosition">
+        insert into
+        <include refid="tableName"/>
+        (<include refid="allColumns"/>)
+        values (#{id}, #{parent_id}, #{name},#{level}, #{sort})
+    </insert>
+
+
+    <select id="selectById" resultType="com.sdf.core.pojo.system.SysPosition" parameterType="int">
+        select
+        <include refid="allColumns"/>
+        from
+        <include refid="tableName"/>
+        where t.id = #{id}
+    </select>
+
+    <select id="selectList" resultType="com.sdf.core.pojo.system.SysPosition" parameterType="com.sdf.core.pojo.system.SysPosition">
+        select
+        <include refid="allColumns"/>
+        from
+        <include refid="tableName"/>
+        where 1=1
+        <if test="id != null and id != '' ">
+            AND t.id = #{id}
+        </if>
+        <if test="parent_id != null and parent_id != '' ">
+            AND t.parent_id = #{parent_id}
+        </if>
+        <if test="level != null and level != '' ">
+            AND t.level = #{level}
+        </if>
+        ORDER BY t.sort ASC
+    </select>
+
+    <update id="update" parameterType="com.sdf.core.pojo.system.SysPosition">
+        update
+        <include refid="tableName"/>
+        set t.parent_id = #{parent_id},t.name = #{name},t.level = #{level},t.sort =
+        #{sort} where t.id = #{id}
+    </update>
+
+</mapper>

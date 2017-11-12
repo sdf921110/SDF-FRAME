@@ -69,18 +69,28 @@
         <div class="layui-form-item userAddress">
             <label class="layui-form-label">家庭住址</label>
             <div class="layui-input-inline">
-                <select name="province" lay-filter="province">
-                    <option value="${modelMap.province}">请选择省</option>
+                <select id="province" lay-filter="province">
+                    <option value="">请选择省</option>
                 </select>
             </div>
             <div class="layui-input-inline">
-                <select name="city" lay-filter="city" disabled>
-                    <option value="${modelMap.city}">请选择市</option>
+                <select id="city" lay-filter="city" disabled>
+                    <option value=""><c:if test="${modelMap.city==''}">请选择市</c:if><c:if test="${modelMap.city!=''}">${modelMap.city}</c:if></option>
                 </select>
             </div>
             <div class="layui-input-inline">
-                <select name="area" lay-filter="area" disabled>
-                    <option value="${modelMap.county}">请选择县/区</option>
+                <select id="county" lay-filter="county" disabled>
+                    <option value=""><c:if test="${modelMap.county==''}">请选择区/县</c:if><c:if test="${modelMap.county!=''}">${modelMap.county}</c:if></option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select id="town" lay-filter="town" disabled>
+                    <option value=""><c:if test="${modelMap.town==''}">请选择街道/乡镇</c:if><c:if test="${modelMap.town!=''}">${modelMap.town}</c:if></option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select id="village" lay-filter="village" disabled>
+                    <option value=""><c:if test="${modelMap.village==''}">请选择社区/村</c:if><c:if test="${modelMap.village!=''}">${modelMap.village}</c:if></option>
                 </select>
             </div>
         </div>
@@ -130,6 +140,12 @@
     <input type="hidden" value="${modelMap.id}" id="id" name="id">
     <input type="text" name="code" value="${modelMap.code}" hidden>
     <input type="text" name="roleId" value="${modelMap.roleId}" hidden>
+    <input type="text" name="status" value="${modelMap.status}" hidden>
+    <input type="text" name="province" id="province-hid" value="${modelMap.province}" hidden>
+    <input type="text" name="city" id="city-hid" value="${modelMap.city}" hidden>
+    <input type="text" name="county" id="county-hid" value="${modelMap.county}" hidden>
+    <input type="text" name="town" id="town-hid" value="${modelMap.town}" hidden>
+    <input type="text" name="village" id="village-hid" value="${modelMap.village}" hidden>
 </form>
 
 <script type="text/javascript" src="${ctx}/static/common/js/address.js?v=1.0"></script>
