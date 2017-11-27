@@ -83,7 +83,7 @@
                     <option value=""><c:if test="${modelMap.county==''}">请选择区/县</c:if><c:if test="${modelMap.county!=''}">${modelMap.county}</c:if></option>
                 </select>
             </div>
-            <div class="layui-input-inline">
+            <div class="layui-input-inline" style="margin-left: 111px;">
                 <select id="town" lay-filter="town" disabled>
                     <option value=""><c:if test="${modelMap.town==''}">请选择街道/乡镇</c:if><c:if test="${modelMap.town!=''}">${modelMap.town}</c:if></option>
                 </select>
@@ -148,7 +148,7 @@
     <input type="text" name="village" id="village-hid" value="${modelMap.village}" hidden>
 </form>
 
-<script type="text/javascript" src="${ctx}/static/common/js/address.js?v=1.0"></script>
+<%--<script type="text/javascript" src="${ctx}/static/common/js/address.js?v=1.0"></script>--%>
 <script type="text/javascript" src="${ctx}/static/back/js/user/user.js?v=1.0"></script>
 
 </body>

@@ -4,11 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/context/spring-context-4.2.xsd
                         http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.sdf.core.controller"/>
@@ -34,8 +34,8 @@
     <mvc:default-servlet-handler/>
 
     <!-- 对静态资源文件的访问 restful -->
-    <mvc:resources location="/ui/" mapping="/ui/**"/>
-    <mvc:resources location="/static/" mapping="/static/**"/>
+   <!-- <mvc:resources location="/ui/" mapping="/ui/**"/>
+    <mvc:resources location="/static/" mapping="/static/**"/>-->
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"

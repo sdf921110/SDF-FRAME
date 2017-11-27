@@ -136,7 +136,7 @@
 
     $(document).keyup(function (event) {
         if (event.keyCode == 13) {
-            $("#to-recover").trigger("click");
+            $("#severCheck").trigger("click");
         }
     });
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- 开启注解 -->
+    <aop:aspectj-autoproxy />
+
+    <!-- 扫描dao,service -->
+    <context:component-scan base-package="com.sdf.core.service"/>
+    <context:component-scan base-package="com.sdf.core.service.*"/>
+    <context:component-scan base-package="com.sdf.core.mapper"/>
+    <context:component-scan base-package="com.sdf.core.mapper.*"/>
+    <!-- 扫描RedisUtil -->
+    <context:component-scan base-package="com.sdf.common.redis"/>
+
+    <!-- 启用注解 -->
+   <!-- <context:annotation-config/>-->
+
+    <!-- 启动缓存注解 -->
+    <!-- <cache:annotation-driven/>-->
+    <cache:annotation-driven cache-manager="cacheManager"/>
+
+    <!-- 配置CoonnectionFactory JedisConnectionFactory-->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="usePool" value="true"></property>
+        <property name="hostName" value="${redis.hostName}" />
+        <property name="port" value="${redis.port}" />
+        <!--<property name="password" value="${redis.pass}" />-->
+        <property name="timeout" value="${redis.timeout}" />
+        <property name="database" value="${redis.default.db}"></property>
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+    </bean>
+
+    <!-- 配置redis连接池  JedisPoolConfig-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}" />
+        <!--
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+        -->
+    </bean>
+
+    <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" id="stringRedisSerializer"/>
+
+    <bean class="org.springframework.data.redis.serializer.JacksonJsonRedisSerializer" id="jacksonJsonRedisSerializer">
+        <constructor-arg type="java.lang.Class" value="java.lang.Object"/>
+    </bean>
+
+    <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"
+          id="jdkSerializationRedisSerializer"/>
+
+    <bean id="jsonSerializer" class="com.sdf.common.redis.FastJson2JsonRedisSerializer">
+        <constructor-arg type="java.lang.Class" value="java.lang.Object"/>
+    </bean>
+
+    <!-- 配置redisTemplate StringRedisTemplate-->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="keySerializer" ref="stringRedisSerializer"/>
+        <property name="valueSerializer" ref="jsonSerializer"/>
+        <property name="hashKeySerializer" ref="stringRedisSerializer"/>
+        <property name="hashValueSerializer" ref="jsonSerializer"/>
+    </bean>
+
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="com.sdf.common.redis.RedisUtil">
+                    <property name="redisTemplate" ref="redisTemplate"/>
+                    <property name="name" value="common"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+</beans>

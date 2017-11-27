@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/SG_area_select.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src='js/iscroll.js'></script>
+    <script type="text/javascript" src='js/SG_area_select.js'></script>
+    <style type="text/css">
+        .code {
+            padding: 2px 4px;
+            font-size: 14px;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+    </style>
+    <title>地区选择</title>
+</head>
+<body>
+<div style="height: 200px;width: 450px;float: left;padding: 20px">
+    <h4>组件演示</h4>
+    <div style="display: flex;margin-top: 50px; ">
+        <div style="line-height: 30px;height: 30px">地区选择：</div>
+        <div><input class="sg-area-result" type="" name=""
+                    style="width: 220px;height: 30px;border: 1px solid #ccc;padding-left: 10px"></div>
+        <div id="selectBtn" style="width: 30px;height: 30px;border: 1px solid #ccc;cursor: pointer; text-align: center">
+            &gt;
+        </div>
+    </div>
+</div>
+<div style="height: 200px;width:450px;float: left;padding: 20px;">
+    <h4>使用方法：</h4>
+    <p>1.引入 <a class="code">SG_area_select.js; SG_area_select.css; iscroll.js;</a></p>
+    <p>2.调用<a class="code">$.areaSelect(); </a>获取值根据通过类：<a class="code">sg-area-result</a></p>
+    <p>eg: <a class="code"> </a>;</p>
+    <br>
+    <h4>参数说明：</h4>
+    <!-- <p>1.状态:(string) 有以下状态选择：<a class="code">success ;info ;wait ;warning ;error;</a></p>
+    <p>2.标题:(string) 设置的标题;</p>
+    <p>3.内容:(string) 设置的内容;</p>
+    <p>4.停留时间:(number) 弹窗停留的时间.</p> -->
+    <br>
+    <h4>待优化：</h4>
+    <p>1.移动端的选择方式;</p>
+    <p>2.二三级菜单参数控制;</p>
+    <p>3.地区信息优化.</p>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#selectBtn').on('click', function () {
+            $.areaSelect();
+        })
+
+    })
+</script>
+
+</body>
+</html>

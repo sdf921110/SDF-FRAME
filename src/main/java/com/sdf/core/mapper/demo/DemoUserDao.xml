@@ -5,7 +5,7 @@
 <mapper namespace="com.sdf.core.mapper.demo.DemoUserDao">
 
     <!--查询BY ID-->
-    <select id="selectById" resultType="com.sdf.core.pojo.demo.DemoUser" parameterType="long">
+    <select id="selectById" resultType="com.sdf.core.pojo.demo.DemoUser" parameterType="int">
         SELECT * FROM demo_user WHERE id = #{id}
     </select>
 

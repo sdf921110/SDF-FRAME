@@ -1,7 +1,8 @@
-var areaData = address;
+// var areaData = address;
 var $form;
 var form;
 var $;
+var url = location.href;
 layui.config({
     base: contextPath + "/ui/layuiCMS/js/"
 }).use(['form', 'layer', 'upload', 'laydate'], function () {
@@ -10,7 +11,10 @@ layui.config({
     $ = layui.jquery;
     $form = $('form');
     laydate = layui.laydate;
-    loadProvince(); //加载省信息
+
+    if(url.indexOf("info")!=-1){
+        loadProvince(); //加载省信息
+    }
 
     // loadUserInfo(); //加载用户信息
 
@@ -22,7 +26,6 @@ layui.config({
         url: contextPath + "/upload/uploadImg?type=userImg",
         success: function (res) {
             // console.dir(res);
-
             // var num = parseInt(4*Math.random());  //生成0-4的随机数
             // //随机显示一个头像信息
             // userFace.src = contextPath + res.data[num].src;
@@ -37,17 +40,17 @@ layui.config({
     //添加验证规则
     form.verify({
         oldPwd: function (value, item) {
-            if (value != "123456") {
+            if (value != "1") {
                 return "密码错误，请重新输入！";
             }
         },
         newPwd: function (value, item) {
-            if (value.length < 6) {
-                return "密码长度不能小于6位";
-            }
+            // if (value.length < 6) {
+            //     return "密码长度不能小于6位";
+            // }
         },
         confirmPwd: function (value, item) {
-            if (!new RegExp($("#oldPwd").val()).test(value)) {
+            if ($("#oldPwd").val() != value) {
                 return "两次输入密码不一致，请重新输入！";
             }
         }
@@ -62,12 +65,11 @@ layui.config({
             data: $('#form-data').serialize(),
             dataType: 'json',
             cache: false,
-            // ajax请求失败
             error: function (request) {
+                console.dir(request)
                 layer.close(index);
-                myLayer.alert("请求失败", 7);
+                myLayer.errorConfrim("请求失败", request.responseText);
             },
-            // ajax请求成功
             success: function (data) {
                 layer.close(index);
                 if (data.msg.success) {
@@ -79,19 +81,35 @@ layui.config({
                 }
             }
         });
-
-
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     })
 
     //修改密码
     form.on("submit(changePwd)", function (data) {
         var index = layer.msg('提交中，请稍候', {icon: 16, time: false, shade: 0.8});
-        setTimeout(function () {
-            layer.close(index);
-            layer.msg("密码修改成功！");
-            $(".pwd").val('');
-        }, 2000);
+        $.ajax({
+            type: "POST",
+            url: contextPath + '/sys-user/changePwdSubmit',
+            data: $('#form-data').serialize(),
+            dataType: 'json',
+            // async:false,
+            cache: false,
+            error: function (request) {
+                layer.close(index);
+                myLayer.errorConfrim("请求失败", request.responseText);
+            },
+            success: function (data) {
+                console.dir(data.msg)
+                layer.close(index);
+                if (data.msg.success) {
+                    myLayer.msg(data.msg.info, -1, 1000, function () {
+                        // location.reload();
+                    });
+                } else {
+                    myLayer.alert(data.msg.info, 7);
+                }
+            }
+        });
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     })
 
@@ -99,28 +117,22 @@ layui.config({
 
 // 加载用户信息
 function loadUserInfo() {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/sys-user/getInfo',
         data: {},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
         // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
         // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
-
                 var info = data.result;
 
                 $('#code').val(info.code);
@@ -148,26 +160,19 @@ function loadUserInfo() {
 
 //加载省数据
 function loadProvince() {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/api/address/select',
         data: {"level": 1},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
-        // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
-        // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
                 var info = data.result;
                 var proHtml = '';
@@ -196,26 +201,19 @@ function loadProvince() {
 
 //加载市数据
 function loadCity(parent_id) {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/api/address/select',
         data: {"level": 2, "parent_id": parent_id},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
-        // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
-        // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
                 var info = data.result;
                 var cityHtml = '<option value="">请选择市</option>';
@@ -239,26 +237,19 @@ function loadCity(parent_id) {
 
 //加载区/县数据
 function loadCounty(parent_id) {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/api/address/select',
         data: {"level": 3, "parent_id": parent_id},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
-        // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
-        // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
                 var info = data.result;
                 var countyHtml = '<option value="">请选择区/县</option>';
@@ -282,26 +273,19 @@ function loadCounty(parent_id) {
 
 //加载街道/乡镇数据
 function loadTown(parent_id) {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/api/address/select',
         data: {"level": 4, "parent_id": parent_id},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
-        // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
-        // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
                 var info = data.result;
                 var townHtml = '<option value="">请选择街道/乡镇</option>';
@@ -325,26 +309,19 @@ function loadTown(parent_id) {
 
 //加载社区/村数据
 function loadVillage(parent_id) {
+    var index = layer.msg('加载中，请稍候', {icon: 16, time: false, shade: 0.8});
     $.ajax({
         type: "POST",
         url: contextPath + '/api/address/select',
         data: {"level": 5, "parent_id": parent_id},
         dataType: 'json',
         cache: false,
-        // ajax请求之前
-        beforeSend: function () {
-            layer.load(0);
-        },
-        // ajax请求完成，不管成功失败
-        complete: function () {
-            layer.closeAll('loading');
-        },
-        // ajax请求失败
         error: function (request) {
+            layer.close(index);
             myLayer.alert("请求失败", 7);
         },
-        // ajax请求成功
         success: function (data) {
+            layer.close(index);
             if (data.msg.success) {
                 var info = data.result;
                 var villageHtml = '<option value="">请选择社区/村</option>';

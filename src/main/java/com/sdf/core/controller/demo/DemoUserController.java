@@ -1,5 +1,6 @@
 package com.sdf.core.controller.demo;
 
+import com.sdf.core.controller.BaseController;
 import com.sdf.core.pojo.demo.DemoUser;
 import com.sdf.core.service.demo.IDemoUserService;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/demo/user")
-public class DemoUserController {
+public class DemoUserController extends BaseController{
 
     @Resource
     private IDemoUserService demoUserService;

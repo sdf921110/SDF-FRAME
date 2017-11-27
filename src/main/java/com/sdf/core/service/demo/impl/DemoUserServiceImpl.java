@@ -2,6 +2,7 @@ package com.sdf.core.service.demo.impl;
 
 import com.sdf.core.mapper.demo.DemoUserDao;
 import com.sdf.core.pojo.demo.DemoUser;
+import com.sdf.core.service.BaseService;
 import com.sdf.core.service.demo.IDemoUserService;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class DemoUserServiceImpl implements IDemoUserService {
+public class DemoUserServiceImpl extends BaseService implements IDemoUserService{
 
     @Resource
     private DemoUserDao demoUserDao;

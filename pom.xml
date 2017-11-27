@@ -14,8 +14,8 @@
         <spring.version>4.2.4.RELEASE</spring.version>
         <mybatis.version>3.3.0</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
-        <slf4j.version>1.6.6</slf4j.version>
-        <log4j.version>1.2.12</log4j.version>
+        <slf4j.version>1.7.7</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
         <mysql.version>5.1.30</mysql.version>
         <junit.version>4.12</junit.version>
         <jdk.version>1.8</jdk.version>
@@ -94,7 +94,7 @@
             <version>1.0.25</version>
         </dependency>
 
-        <!-- alibaba fastjson -->
+        <!-- alibaba fastjson 格式化对象，方便输出日志-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -162,7 +162,13 @@
             <version>2.8.0</version>
         </dependency>
 
-        <!--commons -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+
+        <!--commons start-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -193,6 +199,33 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <!--commons end-->
+
+        <!--Redis start -->
+        <!-- spring-redis实现 -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.6.2.RELEASE</version>
+        </dependency>
+        <!-- redis客户端jar -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+        <!-- Ehcache实现,用于参考 -->
+       <!-- <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
+        <!--Redis end -->
 
         <!--Java生成缩略图之Thumbnailator-->
         <dependency>
@@ -208,13 +241,12 @@
             <version>1.1.2-offical</version>
         </dependency>
 
-       <!-- 验证码图片生成 jcaptcha-->
+        <!-- 验证码图片生成 jcaptcha-->
         <dependency>
             <groupId>com.octo.captcha</groupId>
             <artifactId>jcaptcha</artifactId>
             <version>1.0</version>
         </dependency>
-
 
         <!--单元测试依赖 -->
         <dependency>
@@ -241,7 +273,7 @@
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                     <encoding>${project.encoding}</encoding>
-                   <!-- <skipTests>true</skipTests>-->
+                    <!-- <skipTests>true</skipTests>-->
                 </configuration>
             </plugin>
 

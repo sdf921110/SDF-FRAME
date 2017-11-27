@@ -9,7 +9,9 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-mybatis.xml,classpath:captcha-context.xml</param-value>
+        <param-value>
+            classpath:spring-mybatis.xml,classpath:spring-redis.xml,classpath:captcha-context.xml
+        </param-value>
     </context-param>
 
     <!--log4j日志配置 start-->
@@ -32,6 +34,7 @@
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <async-supported>true</async-supported>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>

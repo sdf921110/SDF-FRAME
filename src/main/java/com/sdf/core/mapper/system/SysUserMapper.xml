@@ -2,17 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sdf.core.mapper.system.SysUserDao">
 
-    <sql id="allColumns">t.desc,t.name,t.phone,t.code,t.password,t.role_id,t.status,t.is_delete,t.create_id,t.update_id,t.create_user,
-      t.update_user,t.create_time,t.update_time,t.email,t.province,t.city,t.county,t.town,t.village,t.birstday,t.img,t.sex,t.hobby </sql>
+    <!-- <cache eviction="LRU" type="com.sdf.common.redis.RedisCache" />-->
+
+    <sql id="allColumns">t.desc,t.name,t.phone,t.code,t.password,t.role_id,t.email,t.province,t.city,t.county,t.town,t.village,t.birstday,t.img,t.sex,t.hobby,
+                         t.status,t.is_delete,t.create_id,t.update_id,t.create_user,t.update_user,t.create_time,t.update_time </sql>
 
     <sql id="tableName">sys_user t</sql>
 
+    <sql id="updateColumns">t.update_id = #{update_id},t.update_user =#{update_user},t.update_time = #{update_time}</sql>
+
     <insert id="insert" parameterType="com.sdf.core.pojo.system.SysUser">
-        insert into
-        <include refid="tableName"/>
-        (<include refid="allColumns"/>)
-        values (#{desc}, #{name}, #{phone},#{code}, #{password}, #{roleId},#{status}, #{isDelete},
-        #{createId},#{updateId}, #{createUser}, #{updateUser},#{createTime}, #{updateTime})
+        insert into <include refid="tableName"/>
+        (t.desc,t.name,t.phone,t.code,t.password,t.role_id,t.email,t.province,t.city,t.county,t.town,t.village,t.birstday,t.img,t.sex,t.hobby,t.create_id,t.create_user,t.create_time)
+        values (#{desc}, #{name}, #{phone},#{code}, #{password}, #{roleId},#{email}, #{province},#{city}, #{county}, #{town},#{village}, #{birstday}, #{img},#{sex}, #{hobby},
+        #{create_id},#{create_user},#{create_time})/>
     </insert>
 
     <select id="selectByCode" resultType="com.sdf.core.pojo.system.SysUser" parameterType="String">
@@ -36,13 +39,64 @@
     <update id="update" parameterType="com.sdf.core.pojo.system.SysUser">
         update
         <include refid="tableName"/>
-        set t.desc = #{desc},t.name = #{name},t.phone = #{phone},t.code = #{code},t.role_id =
-        #{role_id},
-        t.status = #{status},t.is_delete = #{is_delete},t.update_id = #{update_id},t.update_user =
-        #{update_user},t.update_time = #{update_time},
-        t.email = #{email},t.province = #{province},t.city = #{city},t.county = #{county},t.town = #{town},t.village =
-        #{village},
-        t.birstday = #{birstday},t.img = #{img},t.sex = #{sex},t.hobby = #{hobby} where t.id = #{id}
+        <set>
+            <if test="desc != null">
+                t.desc = #{desc},
+            </if>
+            <if test="name != null">
+                t.name = #{name},
+            </if>
+            <if test="phone != null">
+                t.phone = #{phone},
+            </if>
+            <if test="code != null">
+                t.code = #{code},
+            </if>
+            <if test="role_id != null">
+                t.role_id = #{role_id},
+            </if>
+            <if test="status != null">
+                t.status = #{status},
+            </if>
+            <if test="is_delete != null">
+                t.is_delete = #{is_delete},
+            </if>
+            <if test="email != null">
+                t.email = #{email},
+            </if>
+            <if test="province != null">
+                t.province = #{province},
+            </if>
+            <if test="city != null">
+                t.city = #{city},
+            </if>
+            <if test="county != null">
+                t.county = #{county},
+            </if>
+            <if test="town != null">
+                t.town = #{town},
+            </if>
+            <if test="village != null">
+                t.village = #{village},
+            </if>
+            <if test="birstday != null">
+                t.birstday = #{birstday},
+            </if>
+            <if test="img != null">
+                t.img = #{img},
+            </if>
+            <if test="sex != null">
+                t.sex = #{sex},
+            </if>
+            <if test="hobby != null">
+                t.hobby = #{hobby},
+            </if>
+            <if test="password != null">
+                t.password = #{password},
+            </if>
+            <include refid="updateColumns"/>
+        </set>
+        where t.id = #{id}
     </update>
 
 </mapper>

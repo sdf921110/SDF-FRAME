@@ -44,9 +44,9 @@ public class SysUserController extends BaseController {
      * @Version: 1.0
      */
     @RequestMapping(value = "info")
-    public String info(HttpSession session,Model model) {
+    public String info(HttpSession session, Model model) {
         SysUser modelMap = getSysUser(session);
-        model.addAttribute("modelMap",modelMap);
+        model.addAttribute("modelMap", modelMap);
         return BACK_PREFIX + "/sysUser/info";
     }
 
@@ -59,14 +59,14 @@ public class SysUserController extends BaseController {
      */
     @RequestMapping("getInfo")
     @ResponseBody
-    public HashMap<String,Object> getInfo(HttpSession session)
+    public HashMap<String, Object> getInfo(HttpSession session)
             throws Exception {
-        HashMap<String,Object> result = new HashMap<>();
+        HashMap<String, Object> result = new HashMap<>();
 
         SysUser sysUser = getSysUser(session);
 
-        result.put("result",sysUser);
-        result.put("msg",MSG.createSuccessMSG());
+        result.put("result", sysUser);
+        result.put("msg", MSG.createSuccessMSG());
         return result;
     }
 
@@ -79,10 +79,40 @@ public class SysUserController extends BaseController {
      */
     @RequestMapping("submit")
     @ResponseBody
-    public HashMap<String,Object> submit(SysUser sysUser, HttpSession session)
+    public HashMap<String, Object> submit(SysUser sysUser, HttpSession session)
             throws Exception {
-        HashMap<String,Object> result = new HashMap<>();
-        sysUserService.submit(result,sysUser,session);
+        HashMap<String, Object> result = new HashMap<>();
+        sysUserService.submit(result, sysUser, session);
+        return result;
+    }
+
+    /**
+     * 修改密码页面
+     * http://localhost/Frame/sys-user/changePwd
+     *
+     * @Date: 2017/11/18 15:00
+     * @Author: SDF
+     * @Version: 1.0
+     */
+    @RequestMapping(value = "changePwd")
+    public String changePwd(HttpSession session, Model model) {
+        SysUser modelMap = getSysUser(session);
+        model.addAttribute("modelMap", modelMap);
+        return BACK_PREFIX + "/sysUser/changePwd";
+    }
+
+    /**
+     * 提交密码修改
+     *
+     * @Date: 2017/11/18 17:51
+     * @Author: SDF
+     * @Version: 1.0
+     */
+    @RequestMapping("changePwdSubmit")
+    @ResponseBody
+    public HashMap<String, Object> changePwdSubmit(HashMap<String, Object> result, String oldPwd, SysUser sysUser, HttpSession session)
+            throws Exception {
+        sysUserService.changePwdSubmit(result, oldPwd, sysUser, session);
         return result;
     }
 

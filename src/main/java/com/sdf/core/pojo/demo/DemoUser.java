@@ -2,7 +2,7 @@ package com.sdf.core.pojo.demo;
 
 public class DemoUser {
 
-    private long id;
+    private int id;
     private String user_name;
     private String password;
     private int age;
@@ -17,11 +17,11 @@ public class DemoUser {
         this.age = age;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

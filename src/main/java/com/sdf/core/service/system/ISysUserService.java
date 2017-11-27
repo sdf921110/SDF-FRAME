@@ -38,5 +38,7 @@ public interface ISysUserService {
 
     public SysUser getInfo(Integer userId);
 
-    public void submit(HashMap<String,Object> result, SysUser sysUser, HttpSession session);
+    public void submit(HashMap<String, Object> result, SysUser sysUser, HttpSession session);
+
+    public void changePwdSubmit(HashMap<String, Object> result, String oldPwd, SysUser sysUser, HttpSession session);
 }

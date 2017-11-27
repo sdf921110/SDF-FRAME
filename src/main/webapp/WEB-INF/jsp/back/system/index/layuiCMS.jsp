@@ -122,7 +122,7 @@
                         <dd><a href="javascript:;" data-url="${ctx}/sys-user/info"><i class="iconfont icon-zhanghu"
                                                                                          data-icon="icon-zhanghu"></i><cite>个人资料</cite></a>
                         </dd>
-                        <dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1"
+                        <dd><a href="javascript:;" data-url="${ctx}/sys-user/changePwd"><i class="iconfont icon-shezhi1"
                                                                                           data-icon="icon-shezhi1"></i><cite>修改密码</cite></a>
                         </dd>
                         <dd><a href="javascript:;" class="changeSkin"><i
