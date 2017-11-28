@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdf.core.mapper.sysMenu.SysMenuDao">
+
+    <sql id="allColumns">t.id,t.title, t.href, t.icon, t.level, t.pid, t.sort, t.spread,t.target</sql>
+
+    <sql id="tableName"> sys_menu t </sql>
+
+    <select id="selectAll" resultType="com.sdf.core.pojo.sysMenu.SysMenu">
+         select <include refid="allColumns"/> from <include refid="tableName"/> ORDER BY t.level,t.sort ;
+    </select>
+</mapper>

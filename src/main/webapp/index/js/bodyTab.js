@@ -11,7 +11,7 @@ layui.define(["element","jquery"],function(exports){
 		layId,
 		Tab = function(){
 			this.tabConfig = {
-				closed : true,  
+				closed : true,
 				openTabNum : undefined,  //最大可打开窗口数量
 				tabFilter : "bodyTab",  //添加窗口的filter
 				url : undefined  //获取菜单json地址
@@ -20,6 +20,37 @@ layui.define(["element","jquery"],function(exports){
 
 	//获取二级菜单数据
 	Tab.prototype.render = function() {
+
+        $.ajax({
+            type: "POST",
+            url: contextPath + '/sys-menu/selectAll',
+            data: {},
+            dataType: 'json',
+            cache: false,
+            error: function (request) {
+                console.dir(request)
+                myLayer.errorConfrim("请求失败", request.responseText);
+            },
+            success: function (data) {
+                if (data.msg.success) {
+                    console.dir(data.result);
+                    //显示左侧菜单
+                    if($(".navBar").html() == ''){
+                        var _this = this;
+                        $(".navBar").html(navBar(data.result)).height($(window).height()-245);
+                        element.init();  //初始化页面元素
+                        $(window).resize(function(){
+                            $(".navBar").height($(window).height()-245);
+                        })
+                    }
+
+                } else {
+                    myLayer.alert("请求失败", 7);
+                }
+            }
+        });
+
+/*
 		var url = this.tabConfig.url;
 		$.get(url,function(data){
 			//显示左侧菜单
@@ -32,6 +63,7 @@ layui.define(["element","jquery"],function(exports){
 				})
 			}
 		})
+*/
 	}
 
 	//参数设置

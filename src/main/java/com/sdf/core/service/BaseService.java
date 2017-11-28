@@ -130,7 +130,7 @@ public class BaseService {
         }
         if (bd instanceof BigDecimal) {
             BigDecimal b = (BigDecimal) bd;
-            return b.setScale(2, b.ROUND_HALF_UP);
+            return b.setScale(2, BigDecimal.ROUND_HALF_UP);
         }
         try {
             return new BigDecimal(bd + "");

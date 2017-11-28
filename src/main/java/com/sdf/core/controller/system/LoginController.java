@@ -4,6 +4,7 @@ import com.sdf.common.constant.SysConstant;
 import com.sdf.common.exception.CustomRuntimeException;
 import com.sdf.common.pojo.MSG;
 import com.sdf.common.pojo.SessionUser;
+import com.sdf.common.utils.StringUtil;
 import com.sdf.core.controller.BaseController;
 import com.sdf.core.service.system.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,7 +137,7 @@ public class LoginController extends BaseController {
         if (sessionUser == null && sessionUser.getSysUser() == null) {
             return MSG.createErrorMSG(SysConstant.CODE_SYS_OUT_TIME, "超时请重新登录");
         }
-        if (password.equals(sessionUser.getSysUser().getPassword())) {
+        if (StringUtil.MD5Encode(password).equals(sessionUser.getSysUser().getPassword())) {
             return MSG.createSuccessMSG("解锁成功");
         }
         return MSG.createErrorMSG(SysConstant.CODE_ERROR_LOGIN_PASSWORD, "密码错误，请重试");

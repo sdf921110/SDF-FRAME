@@ -104,7 +104,7 @@
                     <a href="javascript:;"><i class="iconfont icon-gonggao"></i><cite>系统公告</cite></a>
                 </li>
                 <li class="layui-nav-item" mobile>
-                    <a href="javascript:;" class="mobileAddTab" data-url="page/user/changePwd.html"><i
+                    <a href="javascript:;" class="mobileAddTab" data-url="${ctx}/sys-user/changePwd"><i
                             class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
                 </li>
                 <li class="layui-nav-item" mobile>
@@ -116,14 +116,14 @@
                 <li class="layui-nav-item" pc>
                     <a href="javascript:;">
                         <img src="${ctx}/ui/layuiCMS/images/face.jpg" class="layui-circle" width="35" height="35">
-                        <cite>&nbsp;&nbsp;&nbsp;SDF&nbsp;&nbsp;&nbsp;</cite>
+                        <cite>&nbsp;&nbsp;&nbsp;${back_session_user.sysUser.code}&nbsp;&nbsp;&nbsp;</cite>
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" data-url="${ctx}/sys-user/info"><i class="iconfont icon-zhanghu"
-                                                                                         data-icon="icon-zhanghu"></i><cite>个人资料</cite></a>
+                                                                                      data-icon="icon-zhanghu"></i><cite>个人资料</cite></a>
                         </dd>
                         <dd><a href="javascript:;" data-url="${ctx}/sys-user/changePwd"><i class="iconfont icon-shezhi1"
-                                                                                          data-icon="icon-shezhi1"></i><cite>修改密码</cite></a>
+                                                                                           data-icon="icon-shezhi1"></i><cite>修改密码</cite></a>
                         </dd>
                         <dd><a href="javascript:;" class="changeSkin"><i
                                 class="iconfont icon-huanfu"></i><cite>更换皮肤</cite></a></dd>
@@ -142,7 +142,7 @@
     <div class="layui-side layui-bg-black">
         <div class="user-photo">
             <a class="img" title="我的头像"><img src="${ctx}/ui/layuiCMS/images/face.jpg"></a>
-            <p>你好！<span class="userName">请叫我马哥</span>, 欢迎登录</p>
+            <p>你好！<span class="userName">${back_session_user.sysUser.name}</span>, 欢迎登录</p>
         </div>
         <div class="navBar layui-side-scroll"></div>
     </div>
@@ -189,7 +189,7 @@
 <div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 <div class="site-mobile-shade"></div>
 
-<script type="text/javascript" src="${ctx}/ui/layuiCMS/js/index.js"></script>
+<script type="text/javascript" src="${ctx}/static/back/js/index/index.js?v=1.0"></script>
 </body>
 
 </html>

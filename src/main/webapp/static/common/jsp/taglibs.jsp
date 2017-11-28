@@ -78,7 +78,7 @@
     var contextPath = '${ctx}';
     //var contextPathImg = '${ctx}/download.img?path='; // 图片存在其他路径（不在项目中）
     var contextPathImg = '${ctx}'; // 图片存在其他路径（在项目中）
-    var systemName = '${sessionScope.session_user.systemName}';
+    <%--var systemName = '${sessionScope.session_user.systemName}';--%>
     var imgError = function (thiz) {
         thiz.src = contextPath
             + '/static/common/img/default_loadError.png?v=100';
