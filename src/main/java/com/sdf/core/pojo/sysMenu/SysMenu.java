@@ -5,6 +5,7 @@ import com.sdf.common.pojo.BaseEntity;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * 系统菜单管理(sys_menu)
@@ -61,6 +62,16 @@ public class SysMenu implements Serializable {
      * 打开方式("_blank")
      **/
     private String target;
+
+    /**
+     * 下级菜单集合
+     **/
+    private List<SysMenu> children;
+
+    /**
+     * 下级菜单
+     **/
+    private SysMenu sysMenu;
 
     /**
      * 重写toString方法
@@ -153,5 +164,21 @@ public class SysMenu implements Serializable {
 
     public void setTarget(String target) {
         this.target = target;
+    }
+
+    public List<SysMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysMenu> children) {
+        this.children = children;
+    }
+
+    public SysMenu getSysMenu() {
+        return sysMenu;
+    }
+
+    public void setSysMenu(SysMenu sysMenu) {
+        this.sysMenu = sysMenu;
     }
 }
