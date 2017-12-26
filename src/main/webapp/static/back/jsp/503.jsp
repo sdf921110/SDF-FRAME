@@ -1,39 +1,20 @@
 <!DOCTYPE html>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="../../common/jsp/taglibs.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="keywords" content="${keywords }" />
-<meta name="description" content="${description }" />
-<title>${title }</title>
-<link href="${staticPath }/css/bootstrap.min.css?v=3.3.6"
-	rel="stylesheet">
-<link href="${staticPath }/css/font-awesome.css?v=4.4.0"
-	rel="stylesheet">
-
-<link href="${staticPath }/css/animate.css" rel="stylesheet">
-<link href="${staticPath }/css/style.css?v=4.1.0" rel="stylesheet">
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>503</title>
+	<link rel="stylesheet" href="${ctx}/ui/layuiCMS/layui/css/layui.css" media="all"/>
 </head>
 
-<body class="gray-bg">
-
-	<div class="middle-box text-center animated fadeInDown">
-		<h1>503</h1>
-		<h3 class="font-bold">正进行更新</h3>
-
-		<div class="error-desc">
-			网站正在更新，请稍后访问~ <br /> <a href="${ctx }/index/manage/page"
-				class="btn btn-primary m-t">主页</a>
-		</div>
-	</div>
-
-	<!-- 全局js -->
-	<script src="${staticPath }/js/jquery.min.js?v=2.1.4"></script>
-	<script src="${staticPath }/js/bootstrap.min.js?v=3.3.6"></script>
-
+<body class="childrenBody">
+<div style="text-align: center; padding:11% 0;">
+	<i class="layui-icon" style="line-height:20rem; font-size:20rem; color: #393D50;">&#xe66a;</i>
+	<p style="font-size: 20px; font-weight: 300; color: #999;">网站正在更新，请稍后访问~</p>
+</div>
 </body>
 
 </html>

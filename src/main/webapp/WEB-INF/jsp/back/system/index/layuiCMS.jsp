@@ -158,12 +158,12 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="iconfont icon-caozuo"></i> 页面操作</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" class="refresh refreshThis"><i class="layui-icon">&#x1002;</i>
+                        <dd><a href="javascript:;" class="refresh refreshThis"><i class="layui-icon">&#xe75c;</i>
                             刷新当前</a></dd>
-                        <dd><a href="javascript:;" class="full"><i class="layui-icon">&#xe630;</i> 全屏显示</a></dd>
-                        <dd><a href="javascript:;" class="closePageOther"><i class="iconfont icon-prohibit"></i>
+                        <dd><a href="javascript:;" class="full"><i class="layui-icon">&#xe657;</i>全屏显示</a></dd>
+                        <dd><a href="javascript:;" class="closePageOther"><i class="layui-icon">&#xe61a;</i>
                             关闭其他</a></dd>
-                        <dd><a href="javascript:;" class="closePageAll"><i class="iconfont icon-guanbi"></i> 关闭全部</a>
+                        <dd><a href="javascript:;" class="closePageAll"><i class="layui-icon">&#xe70e;</i> 关闭全部</a>
                         </dd>
                     </dl>
                 </li>

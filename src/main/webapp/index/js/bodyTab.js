@@ -122,7 +122,7 @@ layui.define(["element","jquery"],function(exports){
 				}
 				tabIdIndex++;
 				title += '<cite>'+_this.find("cite").text()+'</cite>';
-				title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+tabIdIndex+'">&#x1006;</i>';
+				title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="'+tabIdIndex+'">&#xe626;</i>';
 				element.tabAdd(tabFilter, {
 			        title : title,
 			        content :"<iframe src='"+_this.attr("data-url")+"' data-id='"+tabIdIndex+"'></frame>",

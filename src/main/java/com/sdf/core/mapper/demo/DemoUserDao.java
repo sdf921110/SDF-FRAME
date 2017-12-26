@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface DemoUserDao {
 
-    DemoUser selectById(long id);
+    DemoUser selectById(int id);
 
     DemoUser selectByName(String user_name);
 

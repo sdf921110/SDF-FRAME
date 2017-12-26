@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IDemoUserService {
 
-    public DemoUser selectUserById(long id);
+    public DemoUser selectUserById(int id);
 
     public DemoUser selectUserByName(String user_name);
 

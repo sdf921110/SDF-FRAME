@@ -15,22 +15,27 @@ public class DemoUserServiceImpl extends BaseService implements IDemoUserService
     @Resource
     private DemoUserDao demoUserDao;
 
-    public DemoUser selectUserById(long id) {
+    @Override
+    public DemoUser selectUserById(int id) {
         return demoUserDao.selectById(id);
     }
 
+    @Override
     public DemoUser selectUserByName(String user_name) {
         return demoUserDao.selectByName(user_name);
     }
 
+    @Override
     public List<DemoUser> selectAll() {
         return demoUserDao.selectAll();
     }
 
+    @Override
     public Integer insert(DemoUser demoUser) {
         return demoUserDao.insert(demoUser);
     }
 
+    @Override
     public Integer deleteById(int id) {
         return demoUserDao.deleteById(id);
     }

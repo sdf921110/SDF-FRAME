@@ -248,6 +248,21 @@
             <version>1.0</version>
         </dependency>
 
+        <!-- freemarker jar -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.20</version>
+       </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.5.14.1</version>
+        </dependency>
+
+
         <!--单元测试依赖 -->
         <dependency>
             <groupId>junit</groupId>

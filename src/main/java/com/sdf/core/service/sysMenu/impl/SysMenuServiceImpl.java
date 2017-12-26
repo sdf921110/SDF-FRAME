@@ -50,13 +50,8 @@ public class SysMenuServiceImpl extends BaseService implements ISysMenuService {
         List<SysMenu> firstList = new ArrayList<>();
         List<SysMenu> secondList = new ArrayList<>();
 
-//        HashMap<String,HashMap<String,List<SysMenu>>> result = new HashMap<>();
-//        HashMap<String,List<SysMenu>> first = new HashMap<>();
-//        HashMap<String,List<SysMenu>> second = new HashMap<>();
-
         for (SysMenu sysMenu : sysMenus){
             Integer level = sysMenu.getLevel();
-//            boolean spread = sysMenu.getSpread()==1?true:false;
 
             // 二级菜单
             if (level==2){
@@ -69,13 +64,13 @@ public class SysMenuServiceImpl extends BaseService implements ISysMenuService {
         }
 
         for (SysMenu sysMenu1 : firstList){
+            List<SysMenu> childrenList = new ArrayList<>();
             for (SysMenu sysMenu2 : secondList){
-                List<SysMenu> childrenList = new ArrayList<>();
                 // 找到二级菜单对应的一级菜单
                 if (sysMenu2.getPid().equals(sysMenu1.getId())){
                     childrenList.add(sysMenu2);
+                    sysMenu1.setChildren(childrenList);
                 }
-                sysMenu1.setChildren(childrenList);
             }
         }
 

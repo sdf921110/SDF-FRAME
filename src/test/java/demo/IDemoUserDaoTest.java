@@ -21,7 +21,7 @@ public class IDemoUserDaoTest {
 
     @Test
     public void testSelectById() throws Exception {
-        long id = 1;
+        int id = 1;
         DemoUser user = demoUserDao.selectById(id);
         if (user != null) {
             System.err.println(user.toString());

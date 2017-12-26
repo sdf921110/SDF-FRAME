@@ -1,5 +1,6 @@
 package com.sdf.core.controller.demo;
 
+import com.sdf.codeGeneration.code.main.RunEntrance;
 import com.sdf.core.controller.BaseController;
 import com.sdf.core.pojo.demo.DemoUser;
 import com.sdf.core.service.demo.IDemoUserService;
@@ -25,9 +26,16 @@ public class DemoUserController extends BaseController{
     @RequestMapping("/queryById")
     public Map<String,Object> selectUser(HttpServletRequest request) throws UnsupportedEncodingException {
         Map<String,Object> result = new HashMap<>();
-        long id = Long.parseLong(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         DemoUser demoUser = demoUserService.selectUserById(id);
         result.put("data",demoUser);
         return result;
+    }
+
+    @ResponseBody
+    @RequestMapping("/testFtl")
+    public String testFtl(HttpServletRequest request) throws Exception {
+        RunEntrance.manager();
+        return null;
     }
 }
